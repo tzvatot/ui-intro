@@ -4,7 +4,7 @@ header {
 }
 
 #table-heading {
-	color: blue;
+	color: #3C7CE1;
 	width: 50%;
 	font-size: 30px;
 	float: left;
@@ -15,14 +15,17 @@ header {
 	width: 50%;
 	direction: rtl;
 	float: left;
+	height: 40px;
+	padding-top: 15px;
+}
+
+#table-header {
+	font-weight: bold;
 }
 
 #main-container {
 	background-color: #F0F0F0;
 	padding: 30px;
-}
-
-#application-table-container {
 }
 
 .clearfix {
