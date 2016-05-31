@@ -28,6 +28,27 @@ header {
 	padding: 30px;
 }
 
+.column-name {
+	width: 10%;
+	float: left;
+}
+
+.column-status {
+	width: 60%;
+	float: left;
+}
+
+.column-owner {
+	width: 10%;
+	float: left;
+}
+
+.column-created {
+	width: 20%;
+	float: left;
+}
+
+
 .clearfix {
 	clear: both;
 }
