@@ -26,6 +26,7 @@ header {
 #main-container {
 	background-color: #F0F0F0;
 	padding: 30px;
+	overflow: hidden;
 }
 
 .column-name {
