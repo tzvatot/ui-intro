@@ -1,0 +1,179 @@
+/* line 5, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../var/lib/gems/1.9.1/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/style.scss */
+html {
+  height: 100%;
+}
+
+/* line 7, ../sass/style.scss */
+body {
+  height: 100%;
+  margin: 0px;
+}
+
+/* line 12, ../sass/style.scss */
+header {
+  height: 40px;
+  padding: 8px 8px 0px;
+}
+
+/* line 17, ../sass/style.scss */
+.table-heading {
+  color: #3C7CE1;
+  width: 50%;
+  font-size: 30px;
+  float: left;
+}
+
+/* line 24, ../sass/style.scss */
+.list-summery {
+  color: black;
+  width: 50%;
+  direction: rtl;
+  float: left;
+  height: 40px;
+  padding-top: 15px;
+}
+
+/* line 33, ../sass/style.scss */
+.table-header {
+  font-weight: bold;
+}
+/* line 35, ../sass/style.scss */
+.table-header > div {
+  padding: 5px;
+}
+
+/* line 40, ../sass/style.scss */
+main {
+  background-color: #F0F0F0;
+  padding: 30px;
+  height: calc(100% - 55px - 60px - 8px);
+}
+
+/* line 48, ../sass/style.scss */
+.table-content .table-line:nth-child(even) {
+  background-color: #F8F8F8;
+}
+/* line 51, ../sass/style.scss */
+.table-content .table-line:nth-child(odd) {
+  background-color: white;
+}
+/* line 54, ../sass/style.scss */
+.table-content .table-line > div {
+  padding: 5px;
+}
+
+/* line 60, ../sass/style.scss */
+.column-name {
+  width: 10%;
+  float: left;
+}
+
+/* line 65, ../sass/style.scss */
+.column-status {
+  width: 60%;
+  float: left;
+}
+
+/* line 70, ../sass/style.scss */
+.column-owner {
+  width: 10%;
+  float: left;
+}
+
+/* line 75, ../sass/style.scss */
+.column-created {
+  width: 15%;
+  float: left;
+}
+
+/* line 80, ../sass/style.scss */
+.status-running {
+  color: green;
+}
+
+/* line 84, ../sass/style.scss */
+.status-stopped {
+  color: orange;
+}
+
+/* line 88, ../sass/style.scss */
+.status-error {
+  color: red;
+}
+
+/* line 92, ../sass/style.scss */
+.table-content .column-created {
+  color: #C7CDE5;
+}
+
+/* line 96, ../sass/style.scss */
+.clearfix:after {
+  clear: both;
+  display: block;
+  content: "";
+}
