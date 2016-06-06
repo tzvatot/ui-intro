@@ -57,24 +57,9 @@ main {
     }
 }
 
-.column-name {
-	width: 10%;
+.column {
 	float: left;
-}
-
-.column-status {
-	width: 60%;
-	float: left;
-}
-
-.column-owner {
-	width: 10%;
-	float: left;
-}
-
-.column-created {
-	width: 15%;
-	float: left;
+	width: calc(100% / 7 - 10px)
 }
 
 .status-running {

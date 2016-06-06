@@ -128,50 +128,32 @@ main {
 }
 
 /* line 60, ../sass/style.scss */
-.column-name {
-  width: 10%;
+.column {
   float: left;
+  width: calc(100% / 7 - 10px);
 }
 
 /* line 65, ../sass/style.scss */
-.column-status {
-  width: 60%;
-  float: left;
-}
-
-/* line 70, ../sass/style.scss */
-.column-owner {
-  width: 10%;
-  float: left;
-}
-
-/* line 75, ../sass/style.scss */
-.column-created {
-  width: 15%;
-  float: left;
-}
-
-/* line 80, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 84, ../sass/style.scss */
+/* line 69, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 88, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 92, ../sass/style.scss */
+/* line 77, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 96, ../sass/style.scss */
+/* line 81, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;
