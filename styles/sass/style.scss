@@ -63,10 +63,11 @@ main {
 .column {
 	float: left;
 	width: calc(100% / 7 - 20px);
-}
-
-.column.info {
-	text-decoration: underline;
+	.info {
+		text-decoration: underline;
+		cursor: pointer;
+		width: 50px;
+	}
 }
 
 .status-running {
@@ -89,7 +90,8 @@ main {
 	text-align: center;
 	border: 2px;
 	border-style: groove;
-	border-radius: 5px
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .table-content .column-created {

@@ -32,8 +32,8 @@ function appAction(element) {
 }
 
 function appInfo(element) {
-	var nameElement = element.previousElementSibling.previousElementSibling.previousElementSibling;
-	var statusElement = element.previousElementSibling.previousElementSibling;
+	var nameElement = element.parentElement.previousElementSibling.previousElementSibling.previousElementSibling;
+	var statusElement = element.parentElement.previousElementSibling.previousElementSibling;
 	alert("Application " + nameElement.innerHTML + " is " + statusElement.innerHTML);
 }
 

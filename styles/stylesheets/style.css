@@ -136,28 +136,29 @@ main {
   float: left;
   width: calc(100% / 7 - 20px);
 }
-
-/* line 68, ../sass/style.scss */
-.column.info {
+/* line 66, ../sass/style.scss */
+.column .info {
   text-decoration: underline;
+  cursor: pointer;
+  width: 50px;
 }
 
-/* line 72, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 76, ../sass/style.scss */
+/* line 77, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 80, ../sass/style.scss */
+/* line 81, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 84, ../sass/style.scss */
+/* line 85, ../sass/style.scss */
 .control-btn {
   background-color: #F0F0F0;
   width: 80px;
@@ -167,14 +168,15 @@ main {
   border: 2px;
   border-style: groove;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-/* line 95, ../sass/style.scss */
+/* line 97, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 99, ../sass/style.scss */
+/* line 101, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;
