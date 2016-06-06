@@ -80,7 +80,7 @@ header {
   padding: 8px 8px 0px;
 }
 
-/* line 17, ../sass/style.scss */
+/* line 19, ../sass/style.scss */
 .table-heading {
   color: #3C7CE1;
   width: 50%;
@@ -88,7 +88,7 @@ header {
   float: left;
 }
 
-/* line 24, ../sass/style.scss */
+/* line 26, ../sass/style.scss */
 .list-summery {
   color: black;
   width: 50%;
@@ -98,62 +98,74 @@ header {
   padding-top: 15px;
 }
 
-/* line 33, ../sass/style.scss */
+/* line 35, ../sass/style.scss */
 .table-header {
   font-weight: bold;
 }
-/* line 35, ../sass/style.scss */
+/* line 37, ../sass/style.scss */
 .table-header > div {
-  padding: 5px;
+  padding: 10px;
 }
 
-/* line 40, ../sass/style.scss */
+/* line 42, ../sass/style.scss */
 main {
   background-color: #F0F0F0;
   padding: 30px;
   height: calc(100% - 55px - 60px - 8px);
 }
 
-/* line 48, ../sass/style.scss */
+/* line 50, ../sass/style.scss */
 .table-content .table-line:nth-child(even) {
   background-color: #F8F8F8;
 }
-/* line 51, ../sass/style.scss */
+/* line 53, ../sass/style.scss */
 .table-content .table-line:nth-child(odd) {
   background-color: white;
 }
-/* line 54, ../sass/style.scss */
+/* line 56, ../sass/style.scss */
 .table-content .table-line > div {
-  padding: 5px;
+  padding: 10px;
 }
 
-/* line 60, ../sass/style.scss */
+/* line 62, ../sass/style.scss */
 .column {
   float: left;
-  width: calc(100% / 7 - 10px);
+  width: calc(100% / 7 - 20px);
 }
 
-/* line 65, ../sass/style.scss */
+/* line 67, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 69, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 73, ../sass/style.scss */
+/* line 75, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 77, ../sass/style.scss */
+/* line 79, ../sass/style.scss */
+.control-btn {
+  background-color: #F0F0F0;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border: 2px;
+  border-style: groove;
+  border-radius: 5px;
+}
+
+/* line 90, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 81, ../sass/style.scss */
+/* line 94, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;
