@@ -114,6 +114,10 @@ main {
   height: calc(100% - 55px - 60px - 8px);
 }
 
+/* line 49, ../sass/style.scss */
+.table-content .table-line {
+  line-height: 30px;
+}
 /* line 50, ../sass/style.scss */
 .table-content .table-line:nth-child(even) {
   background-color: #F8F8F8;
@@ -127,28 +131,33 @@ main {
   padding: 10px;
 }
 
-/* line 62, ../sass/style.scss */
+/* line 63, ../sass/style.scss */
 .column {
   float: left;
   width: calc(100% / 7 - 20px);
 }
 
-/* line 67, ../sass/style.scss */
+/* line 68, ../sass/style.scss */
+.column.info {
+  text-decoration: underline;
+}
+
+/* line 72, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 71, ../sass/style.scss */
+/* line 76, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 75, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 79, ../sass/style.scss */
+/* line 84, ../sass/style.scss */
 .control-btn {
   background-color: #F0F0F0;
   width: 80px;
@@ -160,12 +169,12 @@ main {
   border-radius: 5px;
 }
 
-/* line 90, ../sass/style.scss */
+/* line 95, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 94, ../sass/style.scss */
+/* line 99, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

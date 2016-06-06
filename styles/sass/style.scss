@@ -56,12 +56,17 @@ main {
 		& > div {
 			padding: 10px;
 		}
+		line-height: 30px;
     }
 }
 
 .column {
 	float: left;
-	width: calc(100% / 7 - 20px)
+	width: calc(100% / 7 - 20px);
+}
+
+.column.info {
+	text-decoration: underline;
 }
 
 .status-running {

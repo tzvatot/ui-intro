@@ -6,6 +6,14 @@ for (var i = 0; i < controlButtons.length; i++) {
 	});
 }
 
+var infoLinks = document.getElementsByClassName('info');
+for (var i = 0; i < infoLinks.length; i++) {
+	var link = infoLinks[i];
+	link.addEventListener("click", function() {
+		appInfo(this);
+	});
+}
+
 function appAction(element) {
 	var statusElement = element.parentElement.previousElementSibling.previousElementSibling.previousElementSibling;
 	var currentStatus = statusElement.textContent;
@@ -21,5 +29,11 @@ function appAction(element) {
 		statusElement.innerHTML = 'Error';
 		element.style.color = 'gray';
 	}
+}
+
+function appInfo(element) {
+	var nameElement = element.previousElementSibling.previousElementSibling.previousElementSibling;
+	var statusElement = element.previousElementSibling.previousElementSibling;
+	alert("Application " + nameElement.innerHTML + " is " + statusElement.innerHTML);
 }
 
