@@ -19,11 +19,11 @@ function appAction(element) {
 	var currentStatus = statusElement.textContent;
 	if (currentStatus === 'Stopped') {
 		statusElement.innerHTML = 'Running';
-		statusElement.style.color = 'green';
+		statusElement.className = 'column column-status status-running';
 		element.innerHTML = 'Stop';
 	} else if (currentStatus === 'Running') {
 		statusElement.innerHTML = 'Stopped';
-		statusElement.style.color = 'orange';
+		statusElement.className = 'column column-status status-stopped';
 		element.innerHTML = 'Start';
 	} else if (currentStatus === 'Error') {
 		statusElement.innerHTML = 'Error';
