@@ -1,4 +1,4 @@
-var controlButtons = document.getElementsByClassName('control-btn');
+var controlButtons = $('.control-btn');
 for (var i = 0; i < controlButtons.length; i++) {
 	var btn = controlButtons[i];
 	btn.addEventListener("click", function() {
@@ -6,7 +6,7 @@ for (var i = 0; i < controlButtons.length; i++) {
 	});
 }
 
-var infoLinks = document.getElementsByClassName('info');
+var infoLinks = $('.info');
 for (var i = 0; i < infoLinks.length; i++) {
 	var link = infoLinks[i];
 	link.addEventListener("click", function() {
