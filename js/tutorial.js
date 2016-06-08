@@ -1,42 +1,3 @@
-function registerActions() {
-	var controlButtons = $('.control-btn');
-	controlButtons.click(function() {
-		appAction($( this ));
-	});
-	
-	$('.app-info-dialog').dialog({ autoOpen: false });
-	$('.info').click(function() {
-		appInfo($( this ));
-	});
-}
-
-
-function appAction(element) {
-	var statusElement = element.parent().prev().prev().prev()
-	var currentStatus = statusElement.text();
-	if (currentStatus === 'Stopped') {
-		statusElement.text('Running');
-		statusElement.removeClass('status-stopped').addClass('status-running');
-		element.text('Stop');
-	} else if (currentStatus === 'Running') {
-		statusElement.text('Stopped');
-		statusElement.removeClass('status-running').addClass('status-stopped');
-		element.text('Start');
-	} else if (currentStatus === 'Error') {
-		statusElement.text('Error');
-		element.css('color', 'gray');
-	}
-}
-
-function appInfo(element) {
-	var nameElement = element.parent().prev().prev().prev();
-	var statusElement = element.parent().prev().prev();
-	var info = "Application " + nameElement.text() + " is " + statusElement.text();
-	var appInfoElem = $('.app-info-dialog');
-	appInfoElem.text(info);
-	appInfoElem.dialog("open");
-}
-
 var apps = [
     {
     	name: 'app1',
@@ -103,4 +64,44 @@ function getAction(status) {
 
 function getStatusClass(status) {
 	return 'status-' + status.toLowerCase();;
+}
+
+function registerActions() {
+	var controlButtons = $('.control-btn');
+	controlButtons.click(function() {
+		appAction($( this ));
+	});
+	
+	$('.app-info-dialog').dialog({ autoOpen: false });
+	$('.info').click(function() {
+		appInfo($( this ));
+	});
+}
+
+
+function appAction(element) {
+	var statusElement = element.parent().prev().prev().prev()
+	var currentStatus = statusElement.text();
+	if (currentStatus === 'Stopped') {
+		statusElement.text('Running');
+		statusElement.removeClass('status-stopped').addClass('status-running');
+		element.text('Stop');
+	} else if (currentStatus === 'Running') {
+		statusElement.text('Stopped');
+		statusElement.removeClass('status-running').addClass('status-stopped');
+		element.text('Start');
+	} else if (currentStatus === 'Error') {
+		statusElement.text('Error');
+		element.css('color', 'gray');
+	}
+}
+
+function appInfo(element) {
+	var tableLine = element.parents().find('.table-line');
+	var statusElement = $(tableLine).find('.column-status');
+	var nameElement = $(tableLine).find('.column-name');
+	var info = "Application " + nameElement.text() + " is " + statusElement.text();
+	var appInfoElem = $('.app-info-dialog');
+	appInfoElem.text(info);
+	appInfoElem.dialog("open");
 }
