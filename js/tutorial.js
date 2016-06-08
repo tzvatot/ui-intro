@@ -3,8 +3,8 @@ controlButtons.click(function() {
 	appAction($( this ));
 });
 
-var infoLinks = $('.info');
-infoLinks.click(function() {
+$('.app-info-diaglog').dialog({ autoOpen: false });
+$('.info').click(function() {
 	appInfo($( this ));
 });
 
@@ -28,6 +28,9 @@ function appAction(element) {
 function appInfo(element) {
 	var nameElement = element.parent().prev().prev().prev();
 	var statusElement = element.parent().prev().prev();
-	alert("Application " + nameElement.text() + " is " + statusElement.text());
+	var info = "Application " + nameElement.text() + " is " + statusElement.text();
+	var appInfoElem = $('.app-info-diaglog');
+	appInfoElem.text(info);
+	appInfoElem.dialog("open");
 }
 
