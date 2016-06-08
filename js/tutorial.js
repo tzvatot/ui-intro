@@ -4,7 +4,7 @@ function registerActions() {
 		appAction($( this ));
 	});
 	
-	$('.app-info-diaglog').dialog({ autoOpen: false });
+	$('.app-info-dialog').dialog({ autoOpen: false });
 	$('.info').click(function() {
 		appInfo($( this ));
 	});
@@ -32,7 +32,7 @@ function appInfo(element) {
 	var nameElement = element.parent().prev().prev().prev();
 	var statusElement = element.parent().prev().prev();
 	var info = "Application " + nameElement.text() + " is " + statusElement.text();
-	var appInfoElem = $('.app-info-diaglog');
+	var appInfoElem = $('.app-info-dialog');
 	appInfoElem.text(info);
 	appInfoElem.dialog("open");
 }
