@@ -1,34 +1,67 @@
-var apps = [
-    {
-    	name: 'app1',
-    	status: 'Running',
-    	owner: 'Elad',
-    	created: '1/1/2016'
-    },
-    {
-    	name: 'app2',
-    	status: 'Error',
-    	owner: 'Noam',
-    	created: '1/1/2011'
-    },
-    {
-    	name: 'app3',
-    	status: 'Stopped',
-    	owner: 'Yaniv',
-    	created: '1/1/2012'
-    },
-    {
-    	name: 'app4',
-    	status: 'Running',
-    	owner: 'Ben',
-    	created: '1/1/2013'
-    }
-];
+var apps = [];
+
+var request = $.ajax({
+    type: "GET",
+    url: "/services/applications",
+    dataType: 'json',
+    async: false,
+    username: 'ravello@ravello.com',
+  	password: 'ravello'
+});
+
+request.done(function (result){
+	parseApps(result); 
+});
+
+request.fail(function( jqXHR, textStatus ) {
+	alert( "Request failed: " + textStatus );
+});
+
 
 $(document).ready(function() {
 	drawApps();
 	registerActions();
 });
+
+function parseApps(fullApps) {
+	for (i = 0; i < fullApps.length; i++) {
+		var fullApp = fullApps[i];
+		var app = { 
+				name: fullApp.name, 
+				owner: fullApp.owner,
+				created: formatDate(fullApp.creationTime),
+				status: getStatusFromApp(fullApp)
+		};
+		apps.push(app);
+	}
+}
+
+function formatDate(epoch) {
+	return new Date(epoch).toLocaleDateString('en-GB', {  
+	    day : 'numeric',
+	    month : 'short',
+	    year : 'numeric'
+	}).split(' ').join('-');
+}
+
+function getStatusFromApp(fullApp) {
+	var deployment = fullApp.deployment;
+	if (typeof deployment != 'undefined') {
+		var totalErrorVms = deployment.totalErrorVms;
+		if (totalErrorVms > 0) {
+			return 'Error';
+		} else {
+			var totalActiveVms = deployment.totalActiveVms;
+			if (totalActiveVms > 0) {
+				return 'Running';
+			} else {
+				return 'Stopped';
+			}
+		}
+	} else {
+		return 'Stopped';
+	}
+}
 
 function drawApps() {
 	var tableContent = $('.table-content');
