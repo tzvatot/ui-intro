@@ -135,7 +135,6 @@ function appAction(element) {
 
 function appInfo(element) {
 	var tableLine = element.parent().parent();
-	console.log(tableLine);
 	var statusElement = $(tableLine).find('.column-status');
 	var nameElement = $(tableLine).find('.column-name');
 	var info = "Application " + nameElement.text() + " is " + statusElement.text();
