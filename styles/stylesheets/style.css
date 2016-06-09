@@ -130,53 +130,54 @@ main {
   background-color: #F0F0F0;
   padding: 30px;
   height: calc(100% - 55px - 60px - 8px);
+  overflow: auto;
 }
 
-/* line 65, ../sass/style.scss */
+/* line 66, ../sass/style.scss */
 .table-content .table-line {
   line-height: 30px;
 }
-/* line 66, ../sass/style.scss */
+/* line 67, ../sass/style.scss */
 .table-content .table-line:nth-child(even) {
   background-color: #F8F8F8;
 }
-/* line 69, ../sass/style.scss */
+/* line 70, ../sass/style.scss */
 .table-content .table-line:nth-child(odd) {
   background-color: white;
 }
-/* line 72, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 .table-content .table-line > div {
   padding: 10px;
 }
 
-/* line 79, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 .column {
   float: left;
   width: calc(100% / 7 - 20px);
 }
-/* line 82, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 .column .info {
   text-decoration: underline;
   cursor: pointer;
   width: 50px;
 }
 
-/* line 89, ../sass/style.scss */
+/* line 90, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 93, ../sass/style.scss */
+/* line 94, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 97, ../sass/style.scss */
+/* line 98, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 101, ../sass/style.scss */
+/* line 102, ../sass/style.scss */
 .btn {
   background-color: #F0F0F0;
   width: 80px;
@@ -189,24 +190,25 @@ main {
   cursor: pointer;
 }
 
-/* line 113, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 117, ../sass/style.scss */
+/* line 118, ../sass/style.scss */
 .filter-apps {
   width: calc(100% / 4);
   height: 25px;
 }
 
-/* line 122, ../sass/style.scss */
+/* line 123, ../sass/style.scss */
 .input {
   border-radius: 5px;
   width: 200px;
+  height: 29px;
 }
 
-/* line 127, ../sass/style.scss */
+/* line 129, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

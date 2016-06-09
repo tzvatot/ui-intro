@@ -59,6 +59,7 @@ main {
 	background-color: $gray;
 	padding: 30px;
 	height: calc(100% - 55px - 60px - 8px);
+	overflow: auto;
 }
 
 .table-content {
@@ -122,6 +123,7 @@ main {
 .input {
 	border-radius: 5px;
 	width: 200px;
+	height: 29px;
 }
 
 .clearfix:after {
