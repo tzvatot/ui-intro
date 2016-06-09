@@ -27,13 +27,17 @@ function parseApps(fullApps) {
 	for (i = 0; i < fullApps.length; i++) {
 		var fullApp = fullApps[i];
 		var app = { 
-				name: fullApp.name, 
+				name: formatName(fullApp.name), 
 				owner: fullApp.owner,
 				created: formatDate(fullApp.creationTime),
 				status: getStatusFromApp(fullApp)
 		};
 		apps.push(app);
 	}
+}
+
+function formatName(name) {
+	return name.replace(new RegExp('<', 'g'), '&lt;').replace(new RegExp('>', 'g'), '&gt;');
 }
 
 function formatDate(epoch) {
