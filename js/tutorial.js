@@ -1,27 +1,34 @@
 var apps = [];
 
-var request = $.ajax({
-    type: "GET",
-    url: "/services/applications",
-    dataType: 'json',
-    async: false,
-    username: 'ravello@ravello.com',
-  	password: 'ravello'
-});
+function refreshApps() {
+	var request = $.ajax({
+		type : "GET",
+		url : "/services/applications",
+		dataType : 'json',
+		async : false,
+		username : 'ravello@ravello.com',
+		password : 'ravello'
+	});
 
-request.done(function (result){
-	parseApps(result); 
-});
+	request.done(function(result) {
+		apps = [];
+		parseApps(result);
+	});
 
-request.fail(function( jqXHR, textStatus ) {
-	alert( "Request failed: " + textStatus );
-});
-
+	request.fail(function(jqXHR, textStatus) {
+		alert("Request failed: " + textStatus);
+	});
+}
 
 $(document).ready(function() {
-	drawApps();
+	refreshAndDrawApps();
 	registerActions();
 });
+
+function refreshAndDrawApps() {
+	refreshApps();
+	drawApps();
+}
 
 function parseApps(fullApps) {
 	for (i = 0; i < fullApps.length; i++) {
@@ -81,7 +88,7 @@ function drawApps() {
 							'<div class="info">info</div>' +
 					   '</div>' + 
 				       '<div class="column column-control">' + 
-				       		'<div class="control-btn">' + action + '</div>' +
+				       		'<div class="btn control-btn">' + action + '</div>' +
 				       '</div>');
 		appLine.append('<div class="column column-owner">' + app.owner + '</div>');
 		appLine.append('<div class="column column-created">' + app.created + '</div>');
@@ -108,7 +115,10 @@ function registerActions() {
 	controlButtons.click(function() {
 		appAction($( this ));
 	});
-	
+	var refreshBtn = $('.refresh-apps-btn');
+	refreshBtn.click(function() {
+		refreshAndDrawApps();
+	});
 	$('.app-info-dialog').dialog({ autoOpen: false });
 	$('.info').click(function() {
 		appInfo($( this ));
