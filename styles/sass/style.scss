@@ -12,24 +12,39 @@ body {
 header {
 	height: 40px;
 	padding: 8px 8px 0px;
+	width: 100%;
 }
 
 $gray: #F0F0F0;
 
 .table-heading {
 	color: #3C7CE1;
-	width: 50%;
+	width: calc(100% / 4);
 	font-size: 30px;
 	float: left;
+	height: 40px;
+}
+
+.refresh-apps {
+	width: calc(100% / 4);
+	float: left;
+	height: 40px;
+}
+
+.filter-apps {
+	width: calc(100% / 4);
+	float: left;
+	height: 40px;
 }
 
 .list-summery {
 	color: black;
-	width: 50%;
+	width: calc(100% / 4  - 20px);
 	direction: rtl;
 	float: left;
 	height: 40px;
 	padding-top: 15px;
+	padding-right: 20px;
 }
 
 .table-header {
