@@ -123,6 +123,9 @@ function registerActions() {
 	$('.info').click(function() {
 		appInfo($( this ));
 	});
+	$('.filter-apps').click(function (){
+		$(this).removeAttr('value');
+	});
 }
 
 

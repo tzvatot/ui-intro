@@ -19,10 +19,11 @@ $gray: #F0F0F0;
 
 .table-heading {
 	color: #3C7CE1;
-	width: calc(100% / 4);
+	width: calc(100% / 4  - 20px);
 	font-size: 30px;
 	float: left;
 	height: 40px;
+	padding-left: 20px;
 }
 
 .refresh-apps {
@@ -111,6 +112,16 @@ main {
 
 .table-content .column-created {
 	color: #C7CDE5;
+}
+
+.filter-apps {
+	width: calc(100% / 4);
+	height: 25px;
+}
+
+.input {
+	border-radius: 5px;
+	width: 200px;
 }
 
 .clearfix:after {
