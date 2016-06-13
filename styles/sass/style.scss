@@ -1,12 +1,9 @@
 @import "compass/reset";
 
-html {
-	height: 100%;
-}
-
+html,
 body {
 	height: 100%;
-	margin: 0px;
+	font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -126,6 +123,12 @@ main {
 	border-radius: 5px;
 	width: 200px;
 	height: 29px;
+	border: 1px groove #9A9A9A;
+	padding-left: 5px;
+	padding-right: 5px;
+	&:focus {
+		outline: 0;
+	}
 }
 
 .clearfix:after {
