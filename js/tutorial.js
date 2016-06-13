@@ -116,7 +116,7 @@ function getStatusClass(status) {
 function registerActions() {
 	var controlButtons = $('.control-btn');
 	controlButtons.click(function() {
-		appAction($( this ));
+		appAction($(this));
 	});
 	var refreshBtn = $('.refresh-apps-btn');
 	refreshBtn.click(function() {
@@ -150,7 +150,7 @@ function filterApps(filterElem) {
 }
 
 function appAction(element) {
-	var statusElement = element.parent().prev().prev().prev()
+	var statusElement = element.parent().prev().prev().prev();
 	var currentStatus = statusElement.text();
 	if (currentStatus === 'Stopped') {
 		statusElement.text('Running');
