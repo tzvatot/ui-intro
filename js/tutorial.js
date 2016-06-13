@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 function refreshAndDrawApps() {
 	refreshApps();
-	drawApps();
+	drawApps(apps);
 }
 
 function parseApps(fullApps) {
@@ -74,10 +74,11 @@ function getStatusFromApp(fullApp) {
 	}
 }
 
-function drawApps() {
+function drawApps(appsToDraw) {
 	var tableContent = $('.table-content');
-	for (i = 0; i < apps.length; i++) {
-		var app = apps[i];
+	tableContent.empty(); // clears the content
+	for (i = 0; i < appsToDraw.length; i++) {
+		var app = appsToDraw[i];
 		var action = getAction(app.status);
 		var statusClass = getStatusClass(app.status);
 		var appLine = $('<div class="table-line clearfix"></div>');
@@ -123,11 +124,28 @@ function registerActions() {
 	$('.info').click(function() {
 		appInfo($( this ));
 	});
-	$('.filter-apps').click(function (){
-		$(this).removeAttr('value');
+	$('.filter-apps input').keyup(function (e){
+		 if (e.keyCode === 13) {
+			 filterApps($(this));
+		 }
 	});
 }
 
+function filterApps(filterElem) {
+	var filter = filterElem.val();
+	if (!filter) {
+		return;
+	}
+	var filteredApps = [];
+	for (i = 0; i < apps.length; i++) {
+		var app = apps[i];
+		var appName = app.name;
+		if (appName.indexOf(filter) != -1) {
+			filteredApps.push(app);
+		}
+	}
+	drawApps(filteredApps);
+}
 
 function appAction(element) {
 	var statusElement = element.parent().prev().prev().prev()
