@@ -80,6 +80,8 @@ main {
 .column {
 	float: left;
 	width: calc(100% / 7 - 20px);
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 	.info {
 		text-decoration: underline;
 		cursor: pointer;
