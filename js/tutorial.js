@@ -84,7 +84,9 @@ function drawApps(appsToDraw) {
 		var appLine = $('<div class="table-line clearfix"></div>');
 		appLine.append('<div class="column column-name">' + app.name + '</div>');
 		appLine.append('<div class="column column-status ' + statusClass + '">' + app.status + '</div>');
-		appLine.append('<div class="column"></div>');
+		appLine.append('<div class="column">'+
+							'<div class="btn rename-btn">Rename</div>' +
+					   '</div>');
 		appLine.append('<div class="column">' +
 							'<div class="info">info</div>' +
 					   '</div>' + 
