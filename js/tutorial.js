@@ -20,14 +20,63 @@ function refreshApps() {
 	});
 }
 
+function getAppIdByName(name) {
+	for (i = 0; i < apps.length; i++) {
+		var app = apps[i];
+		if (name === app.name) {
+			return app.id;
+		}
+	}
+	throw "failed to find application named " + name;
+}
+
+function asyncRenameApp(id, name) {
+	var request = $.ajax({
+		type : "GET",
+		url : "/services/applications/" + id,
+		dataType : 'json',
+		username : 'ravello@ravello.com',
+		password : 'ravello'
+	});
+	request.done(function(fullApp) {
+		console.log('result:', fullApp);
+		fullApp.name = name;
+		updateApp(id, fullApp);
+	});
+
+	request.fail(function(jqXHR, textStatus) {
+		alert("Request failed: " + textStatus);
+	});
+}
+
+function updateApp(id, fullApp) {
+	var request = $.ajax({
+		type : "PUT",
+		url : "/services/applications/" + id,
+		data: JSON.stringify(fullApp),
+		dataType : 'json',
+		contentType: 'application/json',
+		username : 'ravello@ravello.com',
+		password : 'ravello'
+	});
+	request.done(function(result) {
+		setTimeout(refreshAndDrawApps, 0);
+	});
+
+	request.fail(function(jqXHR, textStatus) {
+		alert("Request failed: " + textStatus);
+	});
+}
+
 $(document).ready(function() {
 	refreshAndDrawApps();
-	registerActions();
+	registerDialogActions();
 });
 
 function refreshAndDrawApps() {
 	refreshApps();
 	drawApps(apps);
+	registerAppActions();
 }
 
 function parseApps(fullApps) {
@@ -37,7 +86,8 @@ function parseApps(fullApps) {
 				name: formatName(fullApp.name), 
 				owner: fullApp.owner,
 				created: formatDate(fullApp.creationTime),
-				status: getStatusFromApp(fullApp)
+				status: getStatusFromApp(fullApp),
+				id: fullApp.id
 		};
 		apps.push(app);
 	}
@@ -75,8 +125,8 @@ function getStatusFromApp(fullApp) {
 }
 
 function drawApps(appsToDraw) {
+	clearTableLines();
 	var tableContent = $('.table-content');
-	tableContent.empty(); // clears the content
 	for (i = 0; i < appsToDraw.length; i++) {
 		var app = appsToDraw[i];
 		var action = getAction(app.status);
@@ -99,6 +149,11 @@ function drawApps(appsToDraw) {
 	}
 }
 
+function clearTableLines() {
+	var tableLines = $('.table-content .table-line');
+	tableLines.remove();
+}
+
 function getAction(status) {
 	if (status === 'Running') {
 		return 'Stop';
@@ -113,7 +168,7 @@ function getStatusClass(status) {
 	return 'status-' + status.toLowerCase();;
 }
 
-function registerActions() {
+function registerAppActions() {
 	var controlButtons = $('.control-btn');
 	controlButtons.click(function() {
 		appAction($(this));
@@ -131,6 +186,42 @@ function registerActions() {
 			 filterApps($(this));
 		 }
 	});
+	$('.app-rename-dialog').dialog({ autoOpen: false });
+	var renameBtn = $('.rename-btn');
+	renameBtn.click(function() {
+		showRenameDialog($(this));
+	});
+}
+
+function registerDialogActions() {
+	var renameOkBtn = $('.rename-app-ok-btn');
+	renameOkBtn.click(function() {
+		console.log("onclick");
+		renameApp($(this));
+	});
+}
+
+function renameApp(element) {
+	var dialogElem = $('.app-rename-dialog');
+	var oldName = dialogElem.attr('data-old-name');
+	console.log(oldName);
+	var newName = $('.input.rename-app').val();
+	var id = getAppIdByName(oldName);
+	asyncRenameApp(id, newName);
+	dialogElem.dialog("close");
+}
+
+function showRenameDialog(element) {
+	var nameElement = element.parent().prev().prev();
+	var appName = nameElement.text();
+	for (i = 0; i < apps.length; i++) {
+		var app = apps[i];
+		if (app.name === appName) {
+			var appRenameElem = $('.app-rename-dialog');
+			appRenameElem.dialog("open");
+			appRenameElem.attr('data-old-name', appName);
+		}
+	}
 }
 
 function filterApps(filterElem) {
@@ -147,6 +238,7 @@ function filterApps(filterElem) {
 		}
 	}
 	drawApps(filteredApps);
+	registerAppActions();
 }
 
 function appAction(element) {
