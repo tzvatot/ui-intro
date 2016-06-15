@@ -32,7 +32,7 @@
 			<div class="table-content">
 				<div ng-repeat="app in apps" class="table-line clearfix">
 					<div class="column column-name">{{app.name}}</div>
-					<div class="column column-status getClassByAppStatus(app.status)">{{app.status}}</div>
+					<div class="column column-status" ng-class="getStatusClass(app.status)">{{app.status}}</div>
 					<div class="column">
 						<div class="btn rename-btn">Rename</div>
 					</div>

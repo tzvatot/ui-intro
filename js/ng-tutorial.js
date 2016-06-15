@@ -40,5 +40,9 @@ angular.module("UiIntro", [])
 				return 'Start';
 			}
 		};
+		
+		$scope.getStatusClass = function (status) {
+			return 'status-' + status.toLowerCase();;
+		};
 	}
 );
