@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="styles/stylesheets/jquery-ui.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 </head>
-<body ng-app="ui-tutorial">
+<body ng-app="UiIntro" ng-controller="AppsController">
 	<header>
 		<div class="table-heading">Applications</div>
 		<div class="refresh-apps">
@@ -14,7 +14,7 @@
 		<div class="filter-apps">
 			<input type="text" class="input filter-apps" placeholder="Filter by name">
 		</div>
-		<div class="list-summery">Showing 4 ravello applications</div>
+		<div class="list-summery">Showing {{apps.length}} ravello applications</div>
 		<div class="clearfix"></div>
 	</header>
 	<main>
@@ -30,6 +30,21 @@
 				<div class="column column-created">Created</div>
 			</div>
 			<div class="table-content">
+				<div ng-repeat="app in apps" class="table-line clearfix">
+					<div class="column column-name">{{app.name}}</div>
+					<div class="column column-status getClassByAppStatus(app.status)">{{app.status}}</div>
+					<div class="column">
+						<div class="btn rename-btn">Rename</div>
+					</div>
+					<div class="column">
+						<div class="info">info</div>
+					</div>
+					<div class="column column-control">
+				    	<div class="btn control-btn">-action</div>
+				    </div>
+				    <div class="column column-owner">{{app.owner}}</div>
+				    <div class="column column-created">{{app.created}}</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -41,7 +56,7 @@
 	</div>
 	<script src="js/jquery-1.12.4.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/tutorial.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="js/ng-tutorial.js"></script>
 </body>
 </html>
