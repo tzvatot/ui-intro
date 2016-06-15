@@ -30,5 +30,15 @@ angular.module("UiIntro", [])
 		               	created: '4/1/2016'
 		               }
 		           ];
+		
+		$scope.getAction = function (status) {
+			if (status === 'Running') {
+				return 'Stop';
+			} else if (status === 'Stopped') {
+				return 'Start';
+			} else {
+				return 'Start';
+			}
+		};
 	}
 );
