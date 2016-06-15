@@ -70,7 +70,7 @@ function updateApp(id, fullApp) {
 
 $(document).ready(function() {
 	refreshAndDrawApps();
-	registerDialogActions();
+	registerNoneAppActions();
 });
 
 function refreshAndDrawApps() {
@@ -173,10 +173,6 @@ function registerAppActions() {
 	controlButtons.click(function() {
 		appAction($(this));
 	});
-	var refreshBtn = $('.refresh-apps-btn');
-	refreshBtn.click(function() {
-		refreshAndDrawApps();
-	});
 	$('.app-info-dialog').dialog({ autoOpen: false });
 	$('.info').click(function() {
 		appInfo($( this ));
@@ -193,7 +189,11 @@ function registerAppActions() {
 	});
 }
 
-function registerDialogActions() {
+function registerNoneAppActions() {
+	var refreshBtn = $('.refresh-apps-btn');
+	refreshBtn.click(function() {
+		refreshAndDrawApps();
+	});
 	var renameOkBtn = $('.rename-app-ok-btn');
 	renameOkBtn.click(function() {
 		console.log("onclick");
