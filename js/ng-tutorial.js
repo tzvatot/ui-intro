@@ -1,6 +1,7 @@
 angular.module("UiIntro", [])
 	.controller("AppsController", function($scope, $http) {
 		$scope.apps = [];
+		$scope.appsBackup = [];
 		
 		$scope.getAction = function (status) {
 			if (status === 'Running') {
@@ -13,7 +14,7 @@ angular.module("UiIntro", [])
 		};
 		
 		$scope.getStatusClass = function (status) {
-			return 'status-' + status.toLowerCase();;
+			return 'status-' + status.toLowerCase();
 		};
 		
 		$scope.refreshApps = function() {
@@ -21,9 +22,11 @@ angular.module("UiIntro", [])
 				method: 'GET',
 				url: '/services/applications',
 				username : 'ravello@ravello.com',
+				async: false,
 				password : 'ravello'
 			}).then(function successCallback(response) {
 				$scope.apps = $scope.parseApps(response.data);
+				$scope.appsBackup = $scope.apps;
 			}, function errorCallback(response) {
 				console.log(response);
 			});
@@ -81,9 +84,20 @@ angular.module("UiIntro", [])
 			alert('TODO: implement');
 		};
 		
-		(function init() {
-	        $scope.refreshApps();
-	    })();
+		$scope.filterApps = function ($event) {
+			$scope.apps = $scope.appsBackup;
+			var element = $event.currentTarget;
+			var filter = element.value;
+			if (!filter) {
+				$scope.refreshApps();
+			}
+			$scope.apps = _.filter($scope.apps, function(app) { return app.name.indexOf(filter) != -1; });
+		};
 		
+		function init() {
+	        $scope.refreshApps();
+	    }
+		
+		init();		
 	}
 );
