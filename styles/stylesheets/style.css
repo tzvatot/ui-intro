@@ -122,6 +122,23 @@ header {
 }
 
 /* line 55, ../sass/style.scss */
+.app-info-header {
+  margin: 10px;
+  float: left;
+  width: 100%;
+}
+/* line 59, ../sass/style.scss */
+.app-info-header > div {
+  float: left;
+  width: 33%;
+}
+
+/* line 66, ../sass/style.scss */
+.vms-table .column {
+  width: 33%;
+}
+
+/* line 71, ../sass/style.scss */
 main {
   background-color: #F0F0F0;
   padding: 30px;
@@ -129,53 +146,60 @@ main {
   overflow: auto;
 }
 
-/* line 63, ../sass/style.scss */
+/* line 79, ../sass/style.scss */
 .table-content .table-line {
   line-height: 30px;
 }
-/* line 64, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 .table-content .table-line:nth-child(even) {
   background-color: #F8F8F8;
 }
-/* line 67, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 .table-content .table-line:nth-child(odd) {
   background-color: white;
 }
-/* line 70, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
 .table-content .table-line > div {
   padding: 10px;
 }
 
-/* line 77, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 .column {
   float: left;
-  width: calc(100% / 7 - 20px);
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
-/* line 82, ../sass/style.scss */
+/* line 97, ../sass/style.scss */
 .column .info {
   text-decoration: underline;
   cursor: pointer;
   width: 50px;
 }
+/* line 102, ../sass/style.scss */
+.column.app-list-column {
+  width: calc(100% / 7 - 20px);
+}
+/* line 105, ../sass/style.scss */
+.column.vm-list-column {
+  width: calc(100% / 3 - 20px);
+}
 
-/* line 89, ../sass/style.scss */
+/* line 110, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 93, ../sass/style.scss */
+/* line 114, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 97, ../sass/style.scss */
+/* line 118, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 101, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 .btn {
   background-color: #F0F0F0;
   width: 80px;
@@ -188,18 +212,18 @@ main {
   cursor: pointer;
 }
 
-/* line 113, ../sass/style.scss */
+/* line 134, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 117, ../sass/style.scss */
+/* line 138, ../sass/style.scss */
 .filter-apps {
   width: calc(100% / 4);
   height: 25px;
 }
 
-/* line 122, ../sass/style.scss */
+/* line 143, ../sass/style.scss */
 .input {
   border-radius: 5px;
   width: 200px;
@@ -208,17 +232,17 @@ main {
   padding-left: 5px;
   padding-right: 5px;
 }
-/* line 129, ../sass/style.scss */
+/* line 150, ../sass/style.scss */
 .input:focus {
   outline: 0;
 }
 
-/* line 134, ../sass/style.scss */
+/* line 155, ../sass/style.scss */
 .app-rename-dialog {
   display: none;
 }
 
-/* line 138, ../sass/style.scss */
+/* line 159, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

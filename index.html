@@ -21,29 +21,60 @@
 	<div id="main-container">
 		<div id="application-table-container">
 			<div class="table-header clearfix">
-				<div class="column column-name">Name</div>
-				<div class="column column-status">Status</div>
-				<div class="column"></div>
-				<div class="column"></div>
-				<div class="column"></div>
-				<div class="column column-owner">Owner</div>
-				<div class="column column-created">Created</div>
+				<div class="column app-list-column">Name</div>
+				<div class="column app-list-column">Status</div>
+				<div class="column app-list-column"></div>
+				<div class="column app-list-column"></div>
+				<div class="column app-list-column"></div>
+				<div class="column app-list-column column-owner">Owner</div>
+				<div class="column app-list-column column-created">Created</div>
 			</div>
 			<div class="table-content">
 				<div ng-repeat="app in apps | filter:filterApps" class="table-line clearfix">
-					<div class="column column-name">{{app.name}}</div>
-					<div class="column column-status" ng-class="getStatusClass(app.status)">{{app.status}}</div>
-					<div class="column">
+					<div class="column app-list-column">{{app.name}}</div>
+					<div class="column app-list-column" ng-class="getStatusClass(app.status)">{{app.status}}</div>
+					<div class="column app-list-column">
 						<div class="btn rename-btn">Rename</div>
 					</div>
-					<div class="column">
+					<div class="column app-list-column">
 						<div class="info" ng-click="showAppInfo()">info</div>
 					</div>
-					<div class="column column-control">
+					<div class="column app-list-column column-control">
 				    	<div class="btn control-btn">{{getAction(app.status)}}</div>
 				    </div>
-				    <div class="column column-owner">{{app.owner}}</div>
-				    <div class="column column-created">{{app.created}}</div>
+				    <div class="column app-list-column column-owner">{{app.owner}}</div>
+				    <div class="column app-list-column column-created">{{app.created}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="app-info">
+		<div class="app-info-header clearfix">
+			<div>
+				<div>Test</div>
+				<div>Running</div>
+			</div>
+			<div>
+				<div class="btn rename-btn">Rename</div>
+			</div>
+			<div>{{app.description}}</div>
+		</div>
+		<div class="vms-table">
+			<div class="table-header clearfix">
+				<div class="column vm-list-column">Name</div>
+				<div class="column vm-list-column">Status</div>
+				<div class="column vm-list-column">Publish Time</div>
+			</div>
+			<div class="table-content">
+				<div class="table-line clearfix">
+					<div class="column vm-list-column">VM1</div>
+					<div class="column vm-list-column">Running</div>
+					<div class="column vm-list-column">1/1/2016</div>
+				</div>
+				<div class="table-line clearfix">
+					<div class="column vm-list-column">VM2</div>
+					<div class="column vm-list-column">Running</div>
+					<div class="column vm-list-column">2/1/2016</div>
 				</div>
 			</div>
 		</div>

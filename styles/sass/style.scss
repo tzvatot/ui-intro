@@ -52,6 +52,22 @@ $gray: #F0F0F0;
 	}
 }
 
+.app-info-header {
+	margin: 10px;
+	float: left;
+	width: 100%;
+	&> div {
+		float: left;
+		width: 33%;
+	}
+}
+
+.vms-table {
+	.column {
+		width: 33%;
+	}
+}
+
 main {
 	background-color: $gray;
 	padding: 30px;
@@ -76,13 +92,18 @@ main {
 
 .column {
 	float: left;
-	width: calc(100% / 7 - 20px);
 	overflow-x: hidden;
 	text-overflow: ellipsis;
 	.info {
 		text-decoration: underline;
 		cursor: pointer;
 		width: 50px;
+	}
+	&.app-list-column {
+		width: calc(100% / 7 - 20px);
+	}
+	&.vm-list-column {
+		width: calc(100% / 3 - 20px);
 	}
 }
 
