@@ -76,6 +76,11 @@ angular.module("UiIntro", [])
 			}).split(' ').join('-');
 		};
 		
+		$scope.showAppInfo = function () {
+			// TODO
+			alert('TODO: implement');
+		};
+		
 		(function init() {
 	        $scope.refreshApps();
 	    })();
