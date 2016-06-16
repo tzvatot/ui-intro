@@ -214,6 +214,11 @@ main {
 }
 
 /* line 134, ../sass/style.scss */
+.app-rename-dialog {
+  display: none;
+}
+
+/* line 138, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;
