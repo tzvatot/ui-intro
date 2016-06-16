@@ -1,7 +1,6 @@
 angular.module("UiIntro", [])
 	.controller("AppsController", function($scope, $http) {
 		$scope.apps = [];
-		$scope.appsBackup = [];
 		
 		$scope.getAction = function (status) {
 			if (status === 'Running') {
@@ -26,7 +25,6 @@ angular.module("UiIntro", [])
 				password : 'ravello'
 			}).then(function successCallback(response) {
 				$scope.apps = $scope.parseApps(response.data);
-				$scope.appsBackup = $scope.apps;
 			}, function errorCallback(response) {
 				console.log(response);
 			});
@@ -82,16 +80,6 @@ angular.module("UiIntro", [])
 		$scope.showAppInfo = function () {
 			// TODO
 			alert('TODO: implement');
-		};
-		
-		$scope.filterApps = function ($event) {
-			$scope.apps = $scope.appsBackup;
-			var element = $event.currentTarget;
-			var filter = element.value;
-			if (!filter) {
-				$scope.refreshApps();
-			}
-			$scope.apps = _.filter($scope.apps, function(app) { return app.name.indexOf(filter) != -1; });
 		};
 		
 		function init() {

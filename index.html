@@ -12,7 +12,7 @@
 			<div class="btn refresh-apps-btn" ng-click="refreshApps()">Refresh</div>
 		</div>
 		<div class="filter-apps">
-			<input type="text" class="input filter-apps" placeholder="Filter by name" ng-keydown="$event.which === 13 && filterApps($event)">
+			<input type="text" class="input filter-apps" placeholder="Filter by name" ng-model="filterApps">
 		</div>
 		<div class="list-summery">Showing {{apps.length}} ravello applications</div>
 		<div class="clearfix"></div>
@@ -30,7 +30,7 @@
 				<div class="column column-created">Created</div>
 			</div>
 			<div class="table-content">
-				<div ng-repeat="app in apps" class="table-line clearfix">
+				<div ng-repeat="app in apps | filter:filterApps" class="table-line clearfix">
 					<div class="column column-name">{{app.name}}</div>
 					<div class="column column-status" ng-class="getStatusClass(app.status)">{{app.status}}</div>
 					<div class="column">
