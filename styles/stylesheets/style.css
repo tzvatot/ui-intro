@@ -135,7 +135,7 @@ header {
 /* line 62, ../sass/style.scss */
 .app-info-header > div div {
   margin: 0 2px 0 0;
-  height: 25px;
+  overflow-y: hidden;
 }
 
 /* line 69, ../sass/style.scss */
@@ -222,6 +222,11 @@ main {
 }
 
 /* line 140, ../sass/style.scss */
+.status-draft {
+  color: gray;
+}
+
+/* line 144, ../sass/style.scss */
 .btn {
   background-color: #F0F0F0;
   width: 80px;
@@ -234,18 +239,18 @@ main {
   cursor: pointer;
 }
 
-/* line 152, ../sass/style.scss */
+/* line 156, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 156, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 .filter-apps {
   width: calc(100% / 4);
   height: 25px;
 }
 
-/* line 161, ../sass/style.scss */
+/* line 165, ../sass/style.scss */
 .input {
   border-radius: 5px;
   width: 200px;
@@ -254,32 +259,32 @@ main {
   padding-left: 5px;
   padding-right: 5px;
 }
-/* line 168, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 .input:focus {
   outline: 0;
 }
 
-/* line 173, ../sass/style.scss */
+/* line 177, ../sass/style.scss */
 .app-rename-dialog {
   display: none;
 }
 
-/* line 177, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 .half-height {
   height: 50%;
 }
 
-/* line 181, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 185, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 .no-height {
   height: 0;
 }
 
-/* line 189, ../sass/style.scss */
+/* line 193, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

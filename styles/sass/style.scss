@@ -61,7 +61,7 @@ $gray: #F0F0F0;
 		width: calc(33% - 2px);
 		div {
 			margin: 0 2px 0 0;
-			height: 25px;
+			overflow-y: hidden;
 		}
 	}
 }
@@ -135,6 +135,10 @@ main {
 
 .status-error {
 	color: red;
+}
+
+.status-draft {
+	color: gray;
 }
 
 .btn {
