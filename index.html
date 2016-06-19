@@ -18,7 +18,7 @@
 		<div class="clearfix"></div>
 	</header>
 	<main>
-	<div id="main-container">
+	<div class="app-list" ng-class="getAppListClass()">
 		<div id="application-table-container">
 			<div class="table-header clearfix">
 				<div class="column app-list-column">Name</div>
@@ -48,7 +48,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="app-info">
+	<div class="app-info" ng-controller="AppInfoController" ng-show="isAppInfoVisible" ng-class="getAppInfoClass()">
 		<hr>
 		<div class="app-info-header clearfix">
 			<div>

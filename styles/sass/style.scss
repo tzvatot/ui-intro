@@ -9,7 +9,7 @@ body {
 header {
 	height: 40px;
 	padding: 8px 8px 0px;
-	width: 100%;
+	width: calc(100% - 16px);
 }
 
 $gray: #F0F0F0;
@@ -55,11 +55,19 @@ $gray: #F0F0F0;
 .app-info-header {
 	margin: 10px;
 	float: left;
-	width: 100%;
+	width: calc(100% - 20px);
 	&> div {
 		float: left;
 		width: 33%;
 	}
+}
+
+.app-list {
+	overflow: auto;
+}
+
+.app-info {
+	overflow: auto;
 }
 
 .vms-table {
@@ -73,6 +81,7 @@ main {
 	padding: 30px;
 	height: calc(100% - 55px - 60px - 8px);
 	overflow: auto;
+	width: calc(100% - 60px);
 }
 
 .table-content {
@@ -154,6 +163,18 @@ main {
 
 .app-rename-dialog {
 	display: none;
+}
+
+.half-height {
+	height: 50%;
+}
+
+.full-height {
+	height: 100%;
+}
+
+.no-height {
+	height: 0;
 }
 
 .clearfix:after {

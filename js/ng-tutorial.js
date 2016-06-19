@@ -1,5 +1,6 @@
-angular.module("UiIntro", [])
-	.controller("AppsController", function($scope, $http) {
+var uiIntroApp = angular.module("UiIntro", []);
+
+uiIntroApp.controller("AppsController", function($scope, $http) {
 		$scope.apps = [];
 		
 		$scope.getAction = function (status) {
@@ -77,9 +78,18 @@ angular.module("UiIntro", [])
 			}).split(' ').join('-');
 		};
 		
-		$scope.showAppInfo = function () {
-			// TODO
-			alert('TODO: implement');
+		$scope.isAppInfoVisible = false;
+		
+		$scope.showAppInfo = function() {
+			$scope.isAppInfoVisible = true;
+		};
+		
+		$scope.getAppListClass = function() {
+			if ($scope.isAppInfoVisible == true) {
+				return 'half-height';
+			} else {
+				return 'full-height';
+			}
 		};
 		
 		function init() {
@@ -87,5 +97,19 @@ angular.module("UiIntro", [])
 	    }
 		
 		init();		
+	}
+	
+);
+
+uiIntroApp.controller("AppInfoController", function($scope, $http) {
+		
+		$scope.getAppInfoClass = function() {
+			if ($scope.isAppInfoVisible == true) {
+				return 'half-height';
+			} else {
+				return 'no-height';
+			}
+		};
+	
 	}
 );
