@@ -80,8 +80,9 @@ uiIntroApp.controller("AppsController", function($scope, $http) {
 		
 		$scope.isAppInfoVisible = false;
 		
-		$scope.showAppInfo = function() {
+		$scope.showAppInfo = function(app) {
 			$scope.isAppInfoVisible = true;
+			$scope.selectedApp = app;
 		};
 		
 		$scope.getAppListClass = function() {

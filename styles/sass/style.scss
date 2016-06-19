@@ -58,8 +58,17 @@ $gray: #F0F0F0;
 	width: calc(100% - 20px);
 	&> div {
 		float: left;
-		width: 33%;
+		width: calc(33% - 2px);
+		div {
+			margin: 0 2px 0 0;
+			height: 25px;
+		}
 	}
+}
+
+.ellipsis {
+	text-overflow: ellipsis;
+	overflow-x: hidden;
 }
 
 .app-list {
