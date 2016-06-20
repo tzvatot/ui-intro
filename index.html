@@ -34,7 +34,7 @@
 					<div class="column app-list-column ellipsis">{{app.name}}</div>
 					<div class="column app-list-column" ng-class="getStatusClass(app.status)">{{app.status}}</div>
 					<div class="column app-list-column">
-						<div class="btn rename-btn">Rename</div>
+						<div class="btn rename-btn" ng-click="showRenameAppDialog(app)">Rename</div>
 					</div>
 					<div class="column app-list-column">
 						<div class="info" ng-click="showAppInfo(app)">info</div>
@@ -77,8 +77,8 @@
 	</div>
 	<div class="app-info-dialog"></div>
 	<div class="app-rename-dialog" title="Application Rename">
-		<input type="text" class="input rename-app" placeholder="New name">
-		<button class="rename-app-ok-btn" type="button">OK</button>
+		<input type="text" class="input rename-app" placeholder="New name" ng-model="newAppName">
+		<button class="rename-app-ok-btn" type="button" ng-click="renameApp(newAppName)">OK</button>
 	</div>
 	</main>
 	<script src="js/jquery-1.12.4.min.js"></script>
