@@ -3,7 +3,6 @@ var uiIntroApp = angular.module("UiIntro", ['ngAnimate', 'ui.bootstrap']);
 uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, ApplicationStore) {
 		$scope.apps = [];
 		$scope.vms = [];
-		$scope.newAppName = '';
 		
 		$scope.getAction = function (status) {
 			if (status === 'Running') {
@@ -23,12 +22,12 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		};
 		
 		$scope.refreshApps = function() {
-			ApplicationStore.listApplications(function (appList){
-				$scope.apps = $scope.parseApps(appList);
+			ApplicationStore.listApplications().then(function (appList) {
+				$scope.apps = parseApps(appList);
 			});
 		};
 		
-		$scope.parseApps = function (fullApps) {
+	function parseApps (fullApps) {
 			var parsedApps = [];
 			for (i = 0; i < fullApps.length; i++) {
 				var fullApp = fullApps[i];
@@ -95,19 +94,19 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		
 		$scope.parseVms = function(fullApp) {
 			var parsedVms = [];
+			
 			if (fullApp.deployment && fullApp.deployment.vms) {
-				var vmList = fullApp.deployment.vms;
-				for (i = 0; i < vmList.length; i++) {
-					var fullVm = vmList[i];
-					var vm = { 
-							name: $scope.formatName(fullVm.name), 
-							publishTime: $scope.formatDate(parseInt(fullVm.firstTimePublished)),
-							status: $scope.getStatusFromVm(fullVm),
-							id: fullVm.id
+				parsedVms = _.map(fullApp.deployment.vms, function(fullVm) {
+					return { 
+						name: $scope.formatName(fullVm.name), 
+						publishTime: $scope.formatDate(parseInt(fullVm.firstTimePublished)),
+						status: $scope.getStatusFromVm(fullVm),
+						id: fullVm.id
 					};
-					parsedVms.push(vm);
-				}
+				});
 			}
+			
+			
 			if (fullApp.design && fullApp.design.vms) {
 				var vmList = fullApp.design.vms;
 				for (i = 0; i < vmList.length; i++) {
@@ -143,33 +142,20 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		};
 		
 		$scope.showRenameAppDialog = function(app) {
-			$scope.selectedApp = app;
-			$scope.openRenameAppDialog();
-		};
-		
-		$scope.openRenameAppDialog = function() {
 			var modalInstance = $uibModal.open({
 				templateUrl : 'rename-app-dialog-modal.html',
-				controller : 'RenameAppModalCtrl',
-				resolve : {
-					selectedApp : function() {
-						return $scope.selectedApp;
-					}
-				}
+				controller : 'RenameAppModalCtrl'				
 			});
 
 			modalInstance.result.then(function(newAppName) {
-				$scope.renameApp(newAppName);
+				renameApp(app.id, newAppName);
 			}, function() {
 				console.log("dismissing");
 			});
 		};
-		
-		$scope.closeRenameAppDialog = function() {
-		};
-		
-		$scope.renameApp = function(newAppName) {
-			ApplicationStore.getApplication($scope.selectedApp.id, function(fullApp){
+						
+		function renameApp(appId, newAppName) {
+			ApplicationStore.getApplication(appId, function(fullApp){
 				fullApp.name = newAppName;
 				$scope.updateApp(fullApp);
 			});
@@ -212,9 +198,8 @@ uiIntroApp.controller("AppInfoController", function($scope, $http) {
 	}
 );
 
-uiIntroApp.controller('RenameAppModalCtrl', function ($scope, $uibModalInstance, selectedApp) {
-
-	  $scope.selectedApp = selectedApp;
+uiIntroApp.controller('RenameAppModalCtrl', function ($scope, $uibModalInstance) {
+	  $scope.newAppName = '';
 	  
 	  $scope.ok = function () {
 	    $uibModalInstance.close($scope.newAppName);
@@ -225,33 +210,3 @@ uiIntroApp.controller('RenameAppModalCtrl', function ($scope, $uibModalInstance,
 	  };
 });
 
-uiIntroApp.factory('ApplicationStore', function($http) {
-	
-	var factory = {}; 
-
-	factory.listApplications = function(callback) {
-		$http({
-			method: 'GET',
-			url: '/services/applications',
-			async: false
-		}).then(function successCallback(response) {
-			callback(response.data);
-		}, function errorCallback(response) {
-			console.log(response);
-		});
-	}
-	
-	factory.getApplication = function(appId, callback) {
-		$http({
-			method: 'GET',
-			url: '/services/applications/' + appId
-		}).then(function successCallback(response) {
-			callback(response.data);
-		}, function errorCallback(response) {
-			console.log(response);
-			throw response;
-		});
-	}
-
-	return factory;
-});
