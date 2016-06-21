@@ -162,16 +162,8 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		};
 		
 		$scope.updateApp = function(fullApp) {
-			$http({
-				method: 'PUT',
-				url: '/services/applications/' + fullApp.id,
-				async: false,
-				data: JSON.stringify(fullApp),
-				dataType : 'json'
-			}).then(function successCallback(response) {
+			ApplicationStore.updateApplication(fullApp).then(function (){
 				$scope.refreshApps();
-			}, function errorCallback(response) {
-				console.log(response);
 			});
 		};
 

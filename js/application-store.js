@@ -22,6 +22,14 @@ angular.module("UiIntro").factory('ApplicationStore', function($http) {
 			throw response;
 		});
 	}
+	
+	factory.updateApplication = function(fullApp) {
+		return $http.put('/services/applications/' + fullApp.id, JSON.stringify(fullApp)).then(function(response) {
+			return response.data;
+		}).catch(function(e) {
+			console.log(e)
+		});
+	}
 
 	return factory;
 });
