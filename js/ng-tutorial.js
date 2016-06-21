@@ -1,6 +1,6 @@
-var uiIntroApp = angular.module("UiIntro", []);
+var uiIntroApp = angular.module("UiIntro", ['ngAnimate', 'ui.bootstrap']);
 
-uiIntroApp.controller("AppsController", function($scope, $http) {
+uiIntroApp.controller("AppsController", function($scope, $http, $uibModal) {
 		$scope.apps = [];
 		$scope.vms = [];
 		$scope.newAppName = '';
@@ -159,16 +159,29 @@ uiIntroApp.controller("AppsController", function($scope, $http) {
 		};
 		
 		$scope.showRenameAppDialog = function(app) {
-			$scope.openRenameAppDialog();
 			$scope.selectedApp = app;
+			$scope.openRenameAppDialog();
 		};
 		
 		$scope.openRenameAppDialog = function() {
-			$('.app-rename-dialog').dialog("open");
+			var modalInstance = $uibModal.open({
+				templateUrl : 'rename-app-dialog-modal.html',
+				controller : 'RenameAppModalCtrl',
+				resolve : {
+					selectedApp : function() {
+						return $scope.selectedApp;
+					}
+				}
+			});
+
+			modalInstance.result.then(function(newAppName) {
+				$scope.renameApp(newAppName);
+			}, function() {
+				console.log("dismissing");
+			});
 		};
 		
 		$scope.closeRenameAppDialog = function() {
-			$('.app-rename-dialog').dialog("close");
 		};
 		
 		$scope.renameApp = function(newAppName) {
@@ -181,7 +194,7 @@ uiIntroApp.controller("AppsController", function($scope, $http) {
 		$scope.updateApp = function(fullApp) {
 			$http({
 				method: 'PUT',
-				url: '/services/applications/' + app.id,
+				url: '/services/applications/' + fullApp.id,
 				async: false,
 				data: JSON.stringify(fullApp),
 				dataType : 'json'
@@ -191,7 +204,7 @@ uiIntroApp.controller("AppsController", function($scope, $http) {
 				console.log(response);
 			});
 		};
-		
+
 		function init() {
 			$http.defaults.headers.common['Authorization'] = 'Basic cmF2ZWxsb0ByYXZlbGxvLmNvbTpyYXZlbGxv'; 
 	        $scope.refreshApps();
@@ -214,3 +227,16 @@ uiIntroApp.controller("AppInfoController", function($scope, $http) {
 	
 	}
 );
+
+uiIntroApp.controller('RenameAppModalCtrl', function ($scope, $uibModalInstance, selectedApp) {
+
+	  $scope.selectedApp = selectedApp;
+	  
+	  $scope.ok = function () {
+	    $uibModalInstance.close($scope.newAppName);
+	  };
+
+	  $scope.cancel = function () {
+	    $uibModalInstance.dismiss('cancel');
+	  };
+	});

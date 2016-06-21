@@ -265,26 +265,21 @@ main {
 }
 
 /* line 177, ../sass/style.scss */
-.app-rename-dialog {
-  display: none;
-}
-
-/* line 181, ../sass/style.scss */
 .half-height {
   height: 50%;
 }
 
-/* line 185, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 189, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 .no-height {
   height: 0;
 }
 
-/* line 193, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;
