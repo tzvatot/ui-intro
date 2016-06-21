@@ -57,7 +57,7 @@
 				<div ng-class="getStatusClass(selectedApp.status)">{{selectedApp.status}}</div>
 			</div>
 			<div>
-				<div class="btn rename-btn">Rename</div>
+				<div class="btn rename-btn" ng-click="showRenameAppDialog(selectedApp)">Rename</div>
 			</div>
 			<div>{{selectedApp.description}}</div>
 		</div>
