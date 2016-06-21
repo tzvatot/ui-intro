@@ -88,20 +88,8 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		
 		$scope.refreshVms = function(appId) {
 			$scope.vms = [];
-			$scope.getUpdatedApp(appId, function(fullApp) {
+			ApplicationStore.getApplication(appId, function(fullApp) {
 				$scope.vms = $scope.parseVms(fullApp);
-			});
-		};
-		
-		$scope.getUpdatedApp = function(appId, callback) {
-			$http({
-				method: 'GET',
-				url: '/services/applications/' + appId,
-			}).then(function successCallback(response) {
-				callback(response.data);
-			}, function errorCallback(response) {
-				console.log(response);
-				throw response;
 			});
 		};
 		
@@ -181,7 +169,7 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		};
 		
 		$scope.renameApp = function(newAppName) {
-			$scope.getUpdatedApp($scope.selectedApp.id, function(fullApp){
+			ApplicationStore.getApplication($scope.selectedApp.id, function(fullApp){
 				fullApp.name = newAppName;
 				$scope.updateApp(fullApp);
 			});
@@ -250,6 +238,18 @@ uiIntroApp.factory('ApplicationStore', function($http) {
 			callback(response.data);
 		}, function errorCallback(response) {
 			console.log(response);
+		});
+	}
+	
+	factory.getApplication = function(appId, callback) {
+		$http({
+			method: 'GET',
+			url: '/services/applications/' + appId
+		}).then(function successCallback(response) {
+			callback(response.data);
+		}, function errorCallback(response) {
+			console.log(response);
+			throw response;
 		});
 	}
 
