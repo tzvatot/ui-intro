@@ -1,6 +1,6 @@
 var uiIntroApp = angular.module("UiIntro", ['ngAnimate', 'ui.bootstrap']);
 
-uiIntroApp.controller("AppsController", function($scope, $http, $uibModal) {
+uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, ApplicationStore) {
 		$scope.apps = [];
 		$scope.vms = [];
 		$scope.newAppName = '';
@@ -23,14 +23,8 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal) {
 		};
 		
 		$scope.refreshApps = function() {
-			$http({
-				method: 'GET',
-				url: '/services/applications',
-				async: false
-			}).then(function successCallback(response) {
-				$scope.apps = $scope.parseApps(response.data);
-			}, function errorCallback(response) {
-				console.log(response);
+			ApplicationStore.listApplications(function (appList){
+				$scope.apps = $scope.parseApps(appList);
 			});
 		};
 		
@@ -241,4 +235,23 @@ uiIntroApp.controller('RenameAppModalCtrl', function ($scope, $uibModalInstance,
 	  $scope.cancel = function () {
 	    $uibModalInstance.dismiss('cancel');
 	  };
-	});
+});
+
+uiIntroApp.factory('ApplicationStore', function($http) {
+	
+	var factory = {}; 
+
+	factory.listApplications = function(callback) {
+		$http({
+			method: 'GET',
+			url: '/services/applications',
+			async: false
+		}).then(function successCallback(response) {
+			callback(response.data);
+		}, function errorCallback(response) {
+			console.log(response);
+		});
+	}
+
+	return factory;
+});
