@@ -3,7 +3,7 @@ angular.module("UiIntro").factory('ApplicationStore', function($http) {
 	var factory = {};
 	
 
-	factory.listApplications = function(callback) {
+	factory.listApplications = function() {
 		return $http.get('/services/applications').then(function(response) {
 			return response.data;
 		}).catch(function(e) {
@@ -11,15 +11,11 @@ angular.module("UiIntro").factory('ApplicationStore', function($http) {
 		});
 	}
 	
-	factory.getApplication = function(appId, callback) {
-		$http({
-			method: 'GET',
-			url: '/services/applications/' + appId
-		}).then(function successCallback(response) {
-			callback(response.data);
-		}, function errorCallback(response) {
-			console.log(response);
-			throw response;
+	factory.getApplication = function(appId) {
+		return $http.get('/services/applications/' + appId).then(function(response) {
+			return response.data;
+		}).catch(function(e) {
+			console.log(e)
 		});
 	}
 	

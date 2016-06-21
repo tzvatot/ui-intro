@@ -87,7 +87,7 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		
 		$scope.refreshVms = function(appId) {
 			$scope.vms = [];
-			ApplicationStore.getApplication(appId, function(fullApp) {
+			ApplicationStore.getApplication(appId).then(function(fullApp) {
 				$scope.vms = $scope.parseVms(fullApp);
 			});
 		};
