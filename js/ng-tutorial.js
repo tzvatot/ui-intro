@@ -46,6 +46,9 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal) {
 						id: fullApp.id
 				};
 				parsedApps.push(app);
+				if ($scope.selectedApp && $scope.selectedApp.id === app.id) {
+					$scope.selectedApp = app;
+				}
 			}
 			return parsedApps;
 		};
@@ -85,7 +88,6 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal) {
 		
 		$scope.showAppInfo = function(app) {
 			$scope.isAppInfoVisible = true;
-//			$scope.closeRenameAppDialog();
 			$scope.selectedApp = app;
 			$scope.refreshVms(app.id);
 		};
