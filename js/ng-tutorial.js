@@ -2,8 +2,7 @@ var uiIntroApp = angular.module("UiIntro", ['ngAnimate', 'ui.bootstrap']);
 
 uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, ApplicationStore, CommonUtil) {
 		$scope.apps = [];
-		$scope.vms = [];
-		
+
 		$scope.getAction = function (status) {
 			if (status === 'Running') {
 				return 'Stop';
