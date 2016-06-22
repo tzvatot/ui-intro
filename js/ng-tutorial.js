@@ -27,15 +27,15 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			});
 		};
 		
-	function parseApps (fullApps) {
+		function parseApps (fullApps) {
 			var parsedApps = [];
 			for (i = 0; i < fullApps.length; i++) {
 				var fullApp = fullApps[i];
 				var app = { 
-						name: $scope.formatName(fullApp.name), 
+						name: formatName(fullApp.name), 
 						owner: fullApp.owner,
-						created: $scope.formatDate(parseInt(fullApp.creationTime)),
-						status: $scope.getStatusFromApp(fullApp),
+						created: formatDate(parseInt(fullApp.creationTime)),
+						status: getStatusFromApp(fullApp),
 						id: fullApp.id
 				};
 				parsedApps.push(app);
@@ -46,7 +46,7 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			return parsedApps;
 		};
 		
-		$scope.getStatusFromApp = function (fullApp) {
+		function getStatusFromApp(fullApp) {
 			var deployment = fullApp.deployment;
 			if (typeof deployment != 'undefined') {
 				var totalErrorVms = deployment.totalErrorVms;
@@ -65,17 +65,17 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			}
 		};
 		
-		$scope.formatName = function (name) {
+		function formatName(name) {
 			return name.replace(new RegExp('<', 'g'), '&lt;').replace(new RegExp('>', 'g'), '&gt;');
-		};
+		}
 
-		$scope.formatDate = function (epoch) {
+		function formatDate(epoch) {
 			return new Date(epoch).toLocaleDateString('en-GB', {  
 			    day : 'numeric',
 			    month : 'short',
 			    year : 'numeric'
 			}).split(' ').join('-');
-		};
+		}
 		
 		$scope.isAppInfoVisible = false;
 		
@@ -92,15 +92,15 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			});
 		};
 		
-		parseVms = function(fullApp) {
+		function parseVms(fullApp) {
 			var parsedVms = [];
 			
 			if (fullApp.deployment && fullApp.deployment.vms) {
 				parsedVms = _.map(fullApp.deployment.vms, function(fullVm) {
 					return { 
-						name: $scope.formatName(fullVm.name), 
-						publishTime: $scope.formatDate(parseInt(fullVm.firstTimePublished)),
-						status: $scope.getStatusFromVm(fullVm),
+						name: formatName(fullVm.name), 
+						publishTime: formatDate(parseInt(fullVm.firstTimePublished)),
+						status: getStatusFromVm(fullVm),
 						id: fullVm.id
 					};
 				});
@@ -112,7 +112,7 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 				for (i = 0; i < vmList.length; i++) {
 					var fullVm = vmList[i];
 					var vm = { 
-							name: $scope.formatName(fullVm.name), 
+							name: formatName(fullVm.name), 
 							publishTime: '',
 							status: 'Draft',
 							id: fullVm.id
@@ -123,7 +123,7 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			return parsedVms;
 		}
 		
-		$scope.getStatusFromVm = function(fullVm) {
+		function getStatusFromVm(fullVm) {
 			var status = fullVm.state.toLowerCase();
 			if (status === 'error_deploy') {
 				status = 'error';
@@ -157,15 +157,15 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		function renameApp(appId, newAppName) {
 			ApplicationStore.getApplication(appId, function(fullApp){
 				fullApp.name = newAppName;
-				$scope.updateApp(fullApp);
+				updateApp(fullApp);
 			});
-		};
+		}
 		
-		$scope.updateApp = function(fullApp) {
+		function updateApp(fullApp) {
 			ApplicationStore.updateApplication(fullApp).then(function (){
 				$scope.refreshApps();
 			});
-		};
+		}
 
 		function init() {
 			$http.defaults.headers.common['Authorization'] = 'Basic cmF2ZWxsb0ByYXZlbGxvLmNvbTpyYXZlbGxv'; 
