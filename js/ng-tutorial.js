@@ -1,6 +1,6 @@
 var uiIntroApp = angular.module("UiIntro", ['ngAnimate', 'ui.bootstrap']);
 
-uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, ApplicationStore) {
+uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, ApplicationStore, CommonUtil) {
 		$scope.apps = [];
 		$scope.vms = [];
 		
@@ -32,9 +32,9 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			for (i = 0; i < fullApps.length; i++) {
 				var fullApp = fullApps[i];
 				var app = { 
-						name: formatName(fullApp.name), 
+						name: CommonUtil.formatName(fullApp.name),
 						owner: fullApp.owner,
-						created: formatDate(parseInt(fullApp.creationTime)),
+						created: CommonUtil.formatDate(parseInt(fullApp.creationTime)),
 						status: getStatusFromApp(fullApp),
 						id: fullApp.id
 				};
@@ -65,72 +65,11 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			}
 		};
 		
-		function formatName(name) {
-			return name.replace(new RegExp('<', 'g'), '&lt;').replace(new RegExp('>', 'g'), '&gt;');
-		}
-
-		function formatDate(epoch) {
-			return new Date(epoch).toLocaleDateString('en-GB', {  
-			    day : 'numeric',
-			    month : 'short',
-			    year : 'numeric'
-			}).split(' ').join('-');
-		}
-		
 		$scope.isAppInfoVisible = false;
 		
 		$scope.showAppInfo = function(app) {
 			$scope.isAppInfoVisible = true;
 			$scope.selectedApp = app;
-			$scope.refreshVms(app.id);
-		};
-		
-		$scope.refreshVms = function(appId) {
-			$scope.vms = [];
-			ApplicationStore.getApplication(appId).then(function(fullApp) {
-				$scope.vms = parseVms(fullApp);
-			});
-		};
-		
-		function parseVms(fullApp) {
-			var parsedVms = [];
-			
-			if (fullApp.deployment && fullApp.deployment.vms) {
-				parsedVms = _.map(fullApp.deployment.vms, function(fullVm) {
-					return { 
-						name: formatName(fullVm.name), 
-						publishTime: formatDate(parseInt(fullVm.firstTimePublished)),
-						status: getStatusFromVm(fullVm),
-						id: fullVm.id
-					};
-				});
-			}
-			
-			
-			if (fullApp.design && fullApp.design.vms) {
-				var vmList = fullApp.design.vms;
-				for (i = 0; i < vmList.length; i++) {
-					var fullVm = vmList[i];
-					var vm = { 
-							name: formatName(fullVm.name), 
-							publishTime: '',
-							status: 'Draft',
-							id: fullVm.id
-					};
-					parsedVms.push(vm);
-				}
-			}
-			return parsedVms;
-		}
-		
-		function getStatusFromVm(fullVm) {
-			var status = fullVm.state.toLowerCase();
-			if (status === 'error_deploy') {
-				status = 'error';
-			} else if (status === 'started') {
-				status = 'running';
-			}
-			return status[0].toUpperCase() + status.substr(1).toLowerCase();
 		};
 		
 		$scope.getAppListClass = function() {
