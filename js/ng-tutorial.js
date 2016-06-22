@@ -88,11 +88,11 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		$scope.refreshVms = function(appId) {
 			$scope.vms = [];
 			ApplicationStore.getApplication(appId).then(function(fullApp) {
-				$scope.vms = $scope.parseVms(fullApp);
+				$scope.vms = parseVms(fullApp);
 			});
 		};
 		
-		$scope.parseVms = function(fullApp) {
+		parseVms = function(fullApp) {
 			var parsedVms = [];
 			
 			if (fullApp.deployment && fullApp.deployment.vms) {
