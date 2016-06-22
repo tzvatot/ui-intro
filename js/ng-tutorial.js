@@ -150,7 +150,7 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			modalInstance.result.then(function(newAppName) {
 				renameApp(app.id, newAppName);
 			}, function() {
-				console.log("dismissing");
+//				console.log("dismissing modal");
 			});
 		};
 						
@@ -176,16 +176,3 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 	}
 	
 );
-
-uiIntroApp.controller('RenameAppModalCtrl', function ($scope, $uibModalInstance) {
-	  $scope.newAppName = '';
-	  
-	  $scope.ok = function () {
-	    $uibModalInstance.close($scope.newAppName);
-	  };
-
-	  $scope.cancel = function () {
-	    $uibModalInstance.dismiss('cancel');
-	  };
-});
-
