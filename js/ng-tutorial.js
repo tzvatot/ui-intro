@@ -177,19 +177,6 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 	
 );
 
-uiIntroApp.controller("AppInfoController", function($scope, $http) {
-		
-		$scope.getAppInfoClass = function() {
-			if ($scope.isAppInfoVisible == true) {
-				return 'half-height';
-			} else {
-				return 'no-height';
-			}
-		};
-	
-	}
-);
-
 uiIntroApp.controller('RenameAppModalCtrl', function ($scope, $uibModalInstance) {
 	  $scope.newAppName = '';
 	  
