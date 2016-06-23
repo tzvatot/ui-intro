@@ -3,30 +3,30 @@ angular.module("UiIntro").directive('renameDirective', function() {
         restrict: 'E',
         scope: {
             name: '=',
-            renameFunc: '='
+            renameFunc: '=' // TODO: check '&'
         },
         templateUrl: 'rename-template.html',
         controller: function ($scope) {
             var editing = false;
+            $scope.newName = $scope.name;
 
             $scope.isEditing = function() {
-                console.log("editing = ", editing);
                 return editing;
             };
 
             $scope.setEditing = function(newMode) {
-                console.log("setting 'editing' to ", editing);
                 editing = newMode;
+                console.log("setting editing to ", newMode);
             };
 
             $scope.rename = function() {
-                console.log('renaming', $scope.name);
-                $scope.renameFunc();
+                $scope.renameFunc($scope.newName);
                 editing = false;
             };
 
             $scope.cancelRename = function() {
                 editing = false;
+                $scope.newName = $scope.name;
             };
 
             $scope.getEditingClass = function() {
@@ -37,12 +37,6 @@ angular.module("UiIntro").directive('renameDirective', function() {
               }
             };
 
-            // $scope.$watch('name',function (newValue, oldValue) {
-            //     if (newValue === oldValue) {
-            //         return;
-            //     }
-            //     console.log("new selected app", $scope.name);
-            // });
         }
     };
 });

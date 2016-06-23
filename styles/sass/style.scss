@@ -176,6 +176,7 @@ main {
 
 .rename {
 	font-size: 16px;
+	overflow: hidden;
 }
 
 .input-not-editable {
@@ -183,6 +184,19 @@ main {
 	font-size: 16px;
 	line-height: 28px;
 	background: inherit;
+}
+
+.action-icon {
+	&.fa {
+		font-size: 20px;
+		padding: 2px;
+		cursor: pointer;
+	}
+}
+
+.action-icons {
+	background: gainsboro;
+	border: 2px;
 }
 
 .input-editable {

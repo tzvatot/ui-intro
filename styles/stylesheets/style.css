@@ -267,9 +267,10 @@ main {
 /* line 177, ../sass/style.scss */
 .rename {
   font-size: 16px;
+  overflow: hidden;
 }
 
-/* line 181, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 .input-not-editable {
   border: 0;
   font-size: 16px;
@@ -277,7 +278,20 @@ main {
   background: inherit;
 }
 
-/* line 188, ../sass/style.scss */
+/* line 190, ../sass/style.scss */
+.action-icon.fa {
+  font-size: 20px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+/* line 197, ../sass/style.scss */
+.action-icons {
+  background: gainsboro;
+  border: 2px;
+}
+
+/* line 202, ../sass/style.scss */
 .input-editable {
   border: 2px;
   font-size: 16px;
@@ -285,22 +299,22 @@ main {
   background: inherit;
 }
 
-/* line 195, ../sass/style.scss */
+/* line 209, ../sass/style.scss */
 .half-height {
   height: 50%;
 }
 
-/* line 199, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 203, ../sass/style.scss */
+/* line 217, ../sass/style.scss */
 .no-height {
   height: 0;
 }
 
-/* line 207, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

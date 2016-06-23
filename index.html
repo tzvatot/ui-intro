@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="styles/stylesheets/jquery-ui.min.css">
 <link rel="stylesheet" href="styles/stylesheets/modal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body ng-app="UiIntro" ng-controller="AppsController">
 	<header>
@@ -33,7 +34,7 @@
 			<div class="table-content">
 				<div ng-repeat="app in apps | filter:filterApps" class="table-line clearfix">
 					<div class="column app-list-column ellipsis" ng-click="setSelectedApp(app)">
-						<rename-directive name="app.name" rename-func="renameSelectedApp">
+						<rename-directive name="app.name" rename-func="renameSelectedApp"></rename-directive>
 					</div>
 					<div class="column app-list-column" ng-class="getStatusClass(app.status)">{{app.status}}</div>
 					<div class="column app-list-column">

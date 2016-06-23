@@ -96,9 +96,9 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 			});
 		};
 
-		$scope.renameSelectedApp = function() {
-			console.log("renaming: ", $scope.selectedApp.id, $scope.selectedApp.name);
-			renameApp($scope.selectedApp.id, $scope.selectedApp.name);
+		$scope.renameSelectedApp = function(newName) {
+			console.log("renaming: ", $scope.selectedApp.id, newName);
+			renameApp($scope.selectedApp.id, newName);
 		};
 						
 		function renameApp(appId, newAppName) {
