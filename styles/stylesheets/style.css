@@ -95,13 +95,18 @@ header {
 }
 
 /* line 32, ../sass/style.scss */
+.left-float {
+  float: left;
+}
+
+/* line 36, ../sass/style.scss */
 .filter-apps {
   width: calc(100% / 4);
   float: left;
   height: 40px;
 }
 
-/* line 38, ../sass/style.scss */
+/* line 42, ../sass/style.scss */
 .list-summery {
   color: black;
   width: calc(100% / 4  - 20px);
@@ -112,54 +117,54 @@ header {
   padding-right: 20px;
 }
 
-/* line 48, ../sass/style.scss */
+/* line 52, ../sass/style.scss */
 .table-header {
   font-weight: bold;
 }
-/* line 50, ../sass/style.scss */
+/* line 54, ../sass/style.scss */
 .table-header > div {
   padding: 10px;
 }
 
-/* line 55, ../sass/style.scss */
+/* line 59, ../sass/style.scss */
 .app-info-header {
   margin: 10px;
   float: left;
   width: calc(100% - 20px);
 }
-/* line 59, ../sass/style.scss */
+/* line 63, ../sass/style.scss */
 .app-info-header > div {
   float: left;
   width: calc(33% - 2px);
 }
-/* line 62, ../sass/style.scss */
+/* line 66, ../sass/style.scss */
 .app-info-header > div div {
   margin: 0 2px 0 0;
   overflow-y: hidden;
 }
 
-/* line 69, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 .ellipsis {
   text-overflow: ellipsis;
   overflow-x: hidden;
 }
 
-/* line 74, ../sass/style.scss */
+/* line 78, ../sass/style.scss */
 .app-list {
   overflow: auto;
 }
 
-/* line 78, ../sass/style.scss */
+/* line 82, ../sass/style.scss */
 .app-info {
   overflow: auto;
 }
 
-/* line 83, ../sass/style.scss */
+/* line 87, ../sass/style.scss */
 .vms-table .column {
   width: 33%;
 }
 
-/* line 88, ../sass/style.scss */
+/* line 92, ../sass/style.scss */
 main {
   background-color: #F0F0F0;
   padding: 30px;
@@ -168,65 +173,66 @@ main {
   width: calc(100% - 60px);
 }
 
-/* line 97, ../sass/style.scss */
+/* line 101, ../sass/style.scss */
 .table-content .table-line {
   line-height: 30px;
+  font-size: 16px;
 }
-/* line 98, ../sass/style.scss */
+/* line 102, ../sass/style.scss */
 .table-content .table-line:nth-child(even) {
   background-color: #F8F8F8;
 }
-/* line 101, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 .table-content .table-line:nth-child(odd) {
   background-color: white;
 }
-/* line 104, ../sass/style.scss */
+/* line 108, ../sass/style.scss */
 .table-content .table-line > div {
   padding: 10px;
 }
 
-/* line 111, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 .column {
   float: left;
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
-/* line 115, ../sass/style.scss */
+/* line 120, ../sass/style.scss */
 .column .info {
   text-decoration: underline;
   cursor: pointer;
   width: 50px;
 }
-/* line 120, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 .column.app-list-column {
   width: calc(100% / 7 - 20px);
 }
-/* line 123, ../sass/style.scss */
+/* line 128, ../sass/style.scss */
 .column.vm-list-column {
   width: calc(100% / 3 - 20px);
 }
 
-/* line 128, ../sass/style.scss */
+/* line 133, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 132, ../sass/style.scss */
+/* line 137, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 136, ../sass/style.scss */
+/* line 141, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 140, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 .status-draft {
   color: gray;
 }
 
-/* line 144, ../sass/style.scss */
+/* line 149, ../sass/style.scss */
 .btn {
   background-color: #F0F0F0;
   width: 80px;
@@ -239,15 +245,9 @@ main {
   cursor: pointer;
 }
 
-/* line 156, ../sass/style.scss */
+/* line 161, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
-}
-
-/* line 160, ../sass/style.scss */
-.filter-apps {
-  width: calc(100% / 4);
-  height: 25px;
 }
 
 /* line 165, ../sass/style.scss */
@@ -265,21 +265,42 @@ main {
 }
 
 /* line 177, ../sass/style.scss */
+.rename {
+  font-size: 16px;
+}
+
+/* line 181, ../sass/style.scss */
+.input-not-editable {
+  border: 0;
+  font-size: 16px;
+  line-height: 28px;
+  background: inherit;
+}
+
+/* line 188, ../sass/style.scss */
+.input-editable {
+  border: 2px;
+  font-size: 16px;
+  line-height: 26px;
+  background: inherit;
+}
+
+/* line 195, ../sass/style.scss */
 .half-height {
   height: 50%;
 }
 
-/* line 181, ../sass/style.scss */
+/* line 199, ../sass/style.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 185, ../sass/style.scss */
+/* line 203, ../sass/style.scss */
 .no-height {
   height: 0;
 }
 
-/* line 189, ../sass/style.scss */
+/* line 207, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

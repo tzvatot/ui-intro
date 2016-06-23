@@ -32,7 +32,9 @@
 			</div>
 			<div class="table-content">
 				<div ng-repeat="app in apps | filter:filterApps" class="table-line clearfix">
-					<div class="column app-list-column ellipsis">{{app.name}}</div>
+					<div class="column app-list-column ellipsis" ng-click="setSelectedApp(app)">
+						<rename-directive name="app.name" rename-func="renameSelectedApp">
+					</div>
 					<div class="column app-list-column" ng-class="getStatusClass(app.status)">{{app.status}}</div>
 					<div class="column app-list-column">
 						<div class="btn rename-btn" ng-click="showRenameAppDialog(app)">Rename</div>
@@ -88,6 +90,7 @@
 	<script src="js/application-store.js"></script>
 	<script src="js/application-info-ctrl.js"></script>
 	<script src="js/application-rename-modal-ctrl.js"></script>
+	<script src="js/rename-directive.js"></script>
 	<script src="js/common-util.js"></script>
 </body>
 </html>

@@ -65,6 +65,10 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 		};
 		
 		$scope.isAppInfoVisible = false;
+
+		$scope.setSelectedApp = function(app) {
+			$scope.selectedApp = app;
+		};
 		
 		$scope.showAppInfo = function(app) {
 			$scope.isAppInfoVisible = true;
@@ -91,9 +95,14 @@ uiIntroApp.controller("AppsController", function($scope, $http, $uibModal, Appli
 //				console.log("dismissing modal");
 			});
 		};
+
+		$scope.renameSelectedApp = function() {
+			console.log("renaming: ", $scope.selectedApp.id, $scope.selectedApp.name);
+			renameApp($scope.selectedApp.id, $scope.selectedApp.name);
+		};
 						
 		function renameApp(appId, newAppName) {
-			ApplicationStore.getApplication(appId, function(fullApp){
+			ApplicationStore.getApplication(appId).then(function(fullApp){
 				fullApp.name = newAppName;
 				updateApp(fullApp);
 			});

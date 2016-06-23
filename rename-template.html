@@ -1,0 +1,5 @@
+<div class-"rename">
+    <input type="text" ng-model="name" ng-click="setEditing(true)" class="left-float" ng-class="getEditingClass()" ng-blur="setEditing(false)">
+    <div ng-show="isEditing()" ng-click="rename()" class="left-float">V</div>
+    <div ng-show="isEditing()" ng-click="cancelRename()" class="left-float">X</div>
+</div>
