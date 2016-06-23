@@ -268,53 +268,50 @@ main {
 .rename {
   font-size: 16px;
   overflow: hidden;
+  background: inherit;
 }
-
-/* line 182, ../sass/style.scss */
-.input-not-editable {
+/* line 181, ../sass/style.scss */
+.rename .input-not-editable {
   border: 0;
   font-size: 16px;
   line-height: 28px;
-  background: inherit;
+}
+/* line 186, ../sass/style.scss */
+.rename .input-editable {
+  border: 2px;
+  font-size: 16px;
+  line-height: 28px;
 }
 
-/* line 190, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 .action-icon.fa {
   font-size: 20px;
   padding: 2px;
   cursor: pointer;
 }
 
-/* line 197, ../sass/style.scss */
+/* line 201, ../sass/style.scss */
 .action-icons {
   background: gainsboro;
   border: 2px;
 }
 
-/* line 202, ../sass/style.scss */
-.input-editable {
-  border: 2px;
-  font-size: 16px;
-  line-height: 26px;
-  background: inherit;
-}
-
-/* line 209, ../sass/style.scss */
+/* line 206, ../sass/style.scss */
 .half-height {
   height: 50%;
 }
 
-/* line 213, ../sass/style.scss */
+/* line 210, ../sass/style.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 217, ../sass/style.scss */
+/* line 214, ../sass/style.scss */
 .no-height {
   height: 0;
 }
 
-/* line 221, ../sass/style.scss */
+/* line 218, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

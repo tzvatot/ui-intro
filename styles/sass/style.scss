@@ -177,13 +177,17 @@ main {
 .rename {
 	font-size: 16px;
 	overflow: hidden;
-}
-
-.input-not-editable {
-	border: 0;
-	font-size: 16px;
-	line-height: 28px;
 	background: inherit;
+	.input-not-editable {
+		border: 0;
+		font-size: 16px;
+		line-height: 28px;
+	}
+	.input-editable {
+		border: 2px;
+		font-size: 16px;
+		line-height: 28px;
+	}
 }
 
 .action-icon {
@@ -197,13 +201,6 @@ main {
 .action-icons {
 	background: gainsboro;
 	border: 2px;
-}
-
-.input-editable {
-	border: 2px;
-	font-size: 16px;
-	line-height: 26px;
-	background: inherit;
 }
 
 .half-height {
