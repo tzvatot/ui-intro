@@ -7,93 +7,21 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
-<body ng-app="UiIntro" ng-controller="AppsController">
-	<header>
-		<div class="table-heading">Applications</div>
-		<div class="refresh-apps">
-			<div class="btn refresh-apps-btn" ng-click="refreshApps()">Refresh</div>
-		</div>
-		<div class="filter-apps">
-			<input type="text" class="input filter-apps" placeholder="Filter by name" ng-model="filterApps">
-		</div>
-		<div class="list-summery">Showing {{apps.length}} ravello applications</div>
-		<div class="clearfix"></div>
-	</header>
-	<main>
-	<div class="app-list" ng-class="getAppListClass()">
-		<div id="application-table-container">
-			<div class="table-header clearfix">
-				<div class="column app-list-column">Name</div>
-				<div class="column app-list-column">Status</div>
-				<div class="column app-list-column"></div>
-				<div class="column app-list-column"></div>
-				<div class="column app-list-column"></div>
-				<div class="column app-list-column column-owner">Owner</div>
-				<div class="column app-list-column column-created">Created</div>
-			</div>
-			<div class="table-content">
-				<div ng-repeat="app in apps | filter:filterApps" class="table-line clearfix">
-					<div class="column app-list-column ellipsis" ng-click="setSelectedApp(app)">
-						<rename-directive name="app.name" rename-func="renameSelectedApp"></rename-directive>
-					</div>
-					<div class="column app-list-column" ng-class="getStatusClass(app.status)">{{app.status}}</div>
-					<div class="column app-list-column">
-						<div class="btn rename-btn" ng-click="showRenameAppDialog(app)">Rename</div>
-					</div>
-					<div class="column app-list-column">
-						<div class="info" ng-click="showAppInfo(app)">info</div>
-					</div>
-					<div class="column app-list-column column-control">
-				    	<div class="btn control-btn">{{getAction(app.status)}}</div>
-				    </div>
-				    <div class="column app-list-column column-owner">{{app.owner}}</div>
-				    <div class="column app-list-column column-created">{{app.created}}</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<hr ng-show="isAppInfoVisible">
-	<div class="app-info" ng-controller="AppInfoController" ng-show="isAppInfoVisible" ng-class="getAppInfoClass()">
-		<div class="app-info-header clearfix">
-			<div>
-				<div class="ellipsis">{{selectedApp.name}}</div>
-				<div ng-class="getStatusClass(selectedApp.status)">{{selectedApp.status}}</div>
-			</div>
-			<div>
-				<div class="btn rename-btn" ng-click="showRenameAppDialog(selectedApp)">Rename</div>
-			</div>
-			<div>{{selectedApp.description}}</div>
-		</div>
-		<div class="vms-table">
-			<div class="table-header clearfix">
-				<div class="column vm-list-column">Name</div>
-				<div class="column vm-list-column">Status</div>
-				<div class="column vm-list-column">Publish Time</div>
-			</div>
-			<div class="table-content">
-				<div ng-repeat="vm in vms" class="table-line clearfix">
-					<div class="column vm-list-column ellipsis">
-						<rename-directive name="vm.name" rename-func="renameVm"></rename-directive>
-					</div>
-					<div class="column vm-list-column" ng-class="getStatusClass(vm.status)">{{vm.status}}</div>
-					<div class="column vm-list-column">{{vm.publishTime}}</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="app-info-dialog"></div>
-	</main>
+<body ng-app="UiIntro">
+	<div ui-view></div>
 	<script src="js/jquery-1.12.4.min.js"></script>
 	<script src="//cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
 	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.3.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
 	<script src="js/ng-tutorial.js"></script>
-	<script src="js/application-ctrl.js"></script>
+	<script src="js/application-util.js"></script>
 	<script src="js/application-store.js"></script>
-	<script src="js/application-info-ctrl.js"></script>
 	<script src="js/application-rename-modal-ctrl.js"></script>
+	<script src="js/application-ctrl.js"></script>
+	<script src="js/application-info-ctrl.js"></script>
 	<script src="js/rename-directive.js"></script>
 	<script src="js/common-util.js"></script>
 </body>

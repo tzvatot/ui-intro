@@ -215,7 +215,7 @@ main {
 }
 
 .half-height {
-	height: 50%;
+	height: calc(50% - 2px);
 }
 
 .full-height {

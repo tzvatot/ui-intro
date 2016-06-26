@@ -1,0 +1,28 @@
+<div class="app-info">
+    <div class="app-info-header clearfix">
+        <div>
+            <div class="ellipsis">{{selectedApp.name}}</div>
+            <div ng-class="getStatusClass(selectedApp.status)">{{selectedApp.status}}</div>
+        </div>
+        <div>
+            <div class="btn rename-btn" ng-click="showRenameAppDialog(selectedApp)">Rename</div>
+        </div>
+        <div>{{selectedApp.description}}</div>
+    </div>
+    <div class="vms-table">
+        <div class="table-header clearfix">
+            <div class="column vm-list-column">Name</div>
+            <div class="column vm-list-column">Status</div>
+            <div class="column vm-list-column">Publish Time</div>
+        </div>
+        <div class="table-content">
+            <div ng-repeat="vm in vms" class="table-line clearfix">
+                <div class="column vm-list-column ellipsis">
+                    <rename-directive name="vm.name" rename-func="renameVm"></rename-directive>
+                </div>
+                <div class="column vm-list-column" ng-class="getStatusClass(vm.status)">{{vm.status}}</div>
+                <div class="column vm-list-column">{{vm.publishTime}}</div>
+            </div>
+        </div>
+    </div>
+</div>

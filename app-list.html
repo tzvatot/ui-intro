@@ -1,0 +1,49 @@
+<header>
+    <div class="table-heading">Applications</div>
+    <div class="refresh-apps">
+        <div class="btn refresh-apps-btn" ng-click="refreshApps()">Refresh</div>
+    </div>
+    <div class="filter-apps">
+        <input type="text" class="input filter-apps" placeholder="Filter by name" ng-model="filterApps">
+    </div>
+    <div class="list-summery">Showing {{apps.length}} ravello applications</div>
+    <div class="clearfix"></div>
+</header>
+<main>
+    <div class="app-list" ng-class="getAppListClass()">
+        <div id="application-table-container">
+            <div class="table-header clearfix">
+                <div class="column app-list-column">Name</div>
+                <div class="column app-list-column">Status</div>
+                <div class="column app-list-column"></div>
+                <div class="column app-list-column"></div>
+                <div class="column app-list-column"></div>
+                <div class="column app-list-column column-owner">Owner</div>
+                <div class="column app-list-column column-created">Created</div>
+            </div>
+            <div class="table-content">
+                <div ng-repeat="app in apps | filter:filterApps" class="table-line clearfix">
+                    <div class="column app-list-column ellipsis" ng-click="setSelectedApp(app)">
+                        <rename-directive name="app.name" rename-func="renameSelectedApp"></rename-directive>
+                    </div>
+                    <div class="column app-list-column" ng-class="getStatusClass(app.status)">{{app.status}}</div>
+                    <div class="column app-list-column">
+                        <div class="btn rename-btn" ng-click="showRenameAppDialog(app)">Rename</div>
+                    </div>
+                    <div class="column app-list-column">
+                        <div class="info">
+                            <a ui-sref="app-info({appId: app.id})">
+                                info
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column app-list-column column-control">
+                        <div class="btn control-btn">{{getAction(app.status)}}</div>
+                    </div>
+                    <div class="column app-list-column column-owner">{{app.owner}}</div>
+                    <div class="column app-list-column column-created">{{app.created}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

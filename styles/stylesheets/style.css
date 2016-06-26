@@ -311,7 +311,7 @@ main {
 
 /* line 217, ../sass/style.scss */
 .half-height {
-  height: 50%;
+  height: calc(50% - 2px);
 }
 
 /* line 221, ../sass/style.scss */

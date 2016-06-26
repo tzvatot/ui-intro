@@ -1,16 +1,7 @@
-angular.module("UiIntro").controller("AppInfoController", function ($scope, $http, ApplicationStore, CommonUtil) {
+angular.module("UiIntro").controller("AppInfoController", function ($scope, $http, $stateParams, ApplicationStore, AppUtil, CommonUtil) {
 
         $scope.vms = [];
-
-        $scope.$watch('selectedApp', function (newValue, oldValue) {
-            if (oldValue === newValue || !$scope.selectedApp) {
-                return;
-            }
-            var appId = $scope.selectedApp.id;
-            ApplicationStore.getApplication(appId).then(function (fullApp) {
-                $scope.vms = parseVms(fullApp);
-            });
-        });
+        $scope.selectedApp;
 
         function parseVms(fullApp) {
             var parsedVms = [];
@@ -60,8 +51,17 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
         };
 
         $scope.renameVm = function(newName) {
-            console.log("renaming vm ", newName);
+            console.log("renaming vm not implemented yet ", newName);
         };
+
+        function init() {
+            ApplicationStore.getApplication($stateParams.appId).then(function (fullApp) {
+                $scope.selectedApp = AppUtil.parseApps([ fullApp ]);
+                $scope.vms = parseVms(fullApp);
+            });
+        }
+
+        init();
 
     }
 );
