@@ -63,21 +63,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 3, ../sass/style.scss */
+/* line 6, ../sass/style.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 10, ../sass/style.scss */
 html,
 body {
   height: 100%;
   font-family: "Roboto", sans-serif;
 }
 
-/* line 9, ../sass/style.scss */
+/* line 16, ../sass/style.scss */
 header {
   height: 40px;
   padding: 8px 8px 0px;
   width: calc(100% - 16px);
 }
 
-/* line 17, ../sass/style.scss */
+/* line 22, ../sass/style.scss */
 .table-heading {
   color: #3C7CE1;
   width: calc(100% / 4  - 20px);
@@ -87,26 +92,26 @@ header {
   padding-left: 20px;
 }
 
-/* line 26, ../sass/style.scss */
+/* line 31, ../sass/style.scss */
 .refresh-apps {
   width: calc(100% / 4);
   float: left;
   height: 40px;
 }
 
-/* line 32, ../sass/style.scss */
+/* line 37, ../sass/style.scss */
 .left-float {
   float: left;
 }
 
-/* line 36, ../sass/style.scss */
+/* line 41, ../sass/style.scss */
 .filter-apps {
   width: calc(100% / 4);
   float: left;
   height: 40px;
 }
 
-/* line 42, ../sass/style.scss */
+/* line 47, ../sass/style.scss */
 .list-summery {
   color: black;
   width: calc(100% / 4  - 20px);
@@ -117,140 +122,139 @@ header {
   padding-right: 20px;
 }
 
-/* line 52, ../sass/style.scss */
+/* line 57, ../sass/style.scss */
 .table-header {
   font-weight: bold;
 }
-/* line 54, ../sass/style.scss */
+/* line 59, ../sass/style.scss */
 .table-header > div {
   padding: 10px;
 }
 
-/* line 59, ../sass/style.scss */
+/* line 64, ../sass/style.scss */
 .app-info-header {
   margin: 10px;
   float: left;
   width: calc(100% - 20px);
 }
-/* line 63, ../sass/style.scss */
+/* line 68, ../sass/style.scss */
 .app-info-header > div {
   float: left;
   width: calc(33% - 2px);
 }
-/* line 66, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 .app-info-header > div div {
   margin: 0 2px 0 0;
   overflow-y: hidden;
 }
 
-/* line 73, ../sass/style.scss */
+/* line 78, ../sass/style.scss */
 .ellipsis {
   text-overflow: ellipsis;
   overflow-x: hidden;
 }
 
-/* line 78, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 .app-list {
   overflow: auto;
 }
 
-/* line 82, ../sass/style.scss */
+/* line 87, ../sass/style.scss */
 .app-info {
   overflow: auto;
 }
 
-/* line 87, ../sass/style.scss */
+/* line 92, ../sass/style.scss */
 .vms-table .column {
   width: 33%;
 }
 
-/* line 92, ../sass/style.scss */
+/* line 97, ../sass/style.scss */
 main {
   background-color: #F0F0F0;
   padding: 30px;
-  height: calc(100% - 55px - 60px - 8px);
+  height: 100%;
   overflow: auto;
   width: calc(100% - 60px);
 }
 
-/* line 101, ../sass/style.scss */
+/* line 106, ../sass/style.scss */
 .table-content .table-line {
   line-height: 30px;
   font-size: 16px;
 }
-/* line 102, ../sass/style.scss */
+/* line 107, ../sass/style.scss */
 .table-content .table-line:nth-child(even) {
   background-color: #F8F8F8;
 }
-/* line 105, ../sass/style.scss */
+/* line 110, ../sass/style.scss */
 .table-content .table-line:nth-child(odd) {
   background-color: white;
 }
-/* line 108, ../sass/style.scss */
+/* line 113, ../sass/style.scss */
 .table-content .table-line > div {
   padding: 10px;
 }
 
-/* line 116, ../sass/style.scss */
+/* line 121, ../sass/style.scss */
 .column {
   float: left;
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
-/* line 120, ../sass/style.scss */
+/* line 125, ../sass/style.scss */
 .column .info {
   text-decoration: underline;
   cursor: pointer;
   width: 50px;
 }
-/* line 125, ../sass/style.scss */
+/* line 130, ../sass/style.scss */
 .column.app-list-column {
   width: calc(100% / 7 - 20px);
 }
-/* line 128, ../sass/style.scss */
+/* line 133, ../sass/style.scss */
 .column.vm-list-column {
   width: calc(100% / 3 - 20px);
 }
 
-/* line 133, ../sass/style.scss */
+/* line 138, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 137, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 141, ../sass/style.scss */
+/* line 146, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 145, ../sass/style.scss */
+/* line 150, ../sass/style.scss */
 .status-draft {
   color: gray;
 }
 
-/* line 149, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 .btn {
   background-color: #F0F0F0;
   width: 80px;
-  height: 25px;
-  line-height: 25px;
+  height: 30px;
+  line-height: 30px;
   text-align: center;
-  border: 2px;
-  border-style: groove;
+  border: 2px groove;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* line 161, ../sass/style.scss */
+/* line 165, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 165, ../sass/style.scss */
+/* line 169, ../sass/style.scss */
 .input {
   border-radius: 5px;
   width: 200px;
@@ -259,67 +263,68 @@ main {
   padding-left: 5px;
   padding-right: 5px;
 }
-/* line 172, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 .input:focus {
   outline: 0;
 }
 
-/* line 177, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 .rename {
   font-size: 16px;
   overflow: hidden;
-  background: inherit;
 }
-/* line 182, ../sass/style.scss */
-.rename .input-not-editable {
-  border: 0;
+/* line 184, ../sass/style.scss */
+.rename input[type="text"] {
+  background: transparent;
+  width: calc(100% - 44px);
+  height: 30px;
   font-size: 16px;
   line-height: 28px;
-}
-/* line 186, ../sass/style.scss */
-.rename .input-not-editable:focus {
-  outline: 0;
 }
 /* line 190, ../sass/style.scss */
-.rename .input-editable {
-  border: 1px solid black;
-  font-size: 16px;
-  line-height: 28px;
-}
-/* line 194, ../sass/style.scss */
-.rename .input-editable:focus {
+.rename input[type="text"]:focus {
   outline: 0;
 }
+/* line 193, ../sass/style.scss */
+.rename input[type="text"].input-not-editable {
+  border: 0;
+}
+/* line 196, ../sass/style.scss */
+.rename input[type="text"].input-editable {
+  background: white;
+}
 
-/* line 201, ../sass/style.scss */
+/* line 203, ../sass/style.scss */
 .action-icon.fa {
   font-size: 20px;
   padding: 2px;
   cursor: pointer;
 }
 
-/* line 208, ../sass/style.scss */
+/* line 210, ../sass/style.scss */
 .action-icons {
   background: gainsboro;
   border: 2px;
+  width: 44px;
+  height: 30px;
 }
 
-/* line 213, ../sass/style.scss */
+/* line 217, ../sass/style.scss */
 .half-height {
   height: 50%;
 }
 
-/* line 217, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 221, ../sass/style.scss */
+/* line 225, ../sass/style.scss */
 .no-height {
   height: 0;
 }
 
-/* line 225, ../sass/style.scss */
+/* line 229, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;
