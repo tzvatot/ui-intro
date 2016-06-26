@@ -1,4 +1,7 @@
 angular.module("UiIntro").directive('renameDirective', function() {
+
+    var letBtnHandleClick = false;
+
     return {
         restrict: 'E',
         scope: {
@@ -6,35 +9,66 @@ angular.module("UiIntro").directive('renameDirective', function() {
             renameFunc: '=' // TODO: check '&'
         },
         templateUrl: 'rename-template.html',
+
+
+        link: function(scope, element) {
+            element.find('input').bind('blur', function (e) {
+                console.log('blur');
+                if (letBtnHandleClick) {
+                    console.log('IGNORE blur');
+                    letBtnHandleClick = false;
+                    element.find('input').focus();
+                    return;
+                }
+
+                scope.$apply(function () {
+                    scope.cancelRename();
+                });
+            });
+        },
+
         controller: function ($scope) {
-            var editing = false;
+            $scope.editing = false;
             $scope.newName = $scope.name;
 
             $scope.isEditing = function() {
-                return editing;
+                return  $scope.editing;
             };
 
             $scope.setEditing = function(newMode) {
-                editing = newMode;
-                console.log("setting editing to ", newMode);
+                $scope.editing = newMode;
             };
 
             $scope.rename = function() {
+                console.log("renaming");
                 $scope.renameFunc($scope.newName);
-                editing = false;
+                $scope.editing = false;
             };
 
             $scope.cancelRename = function() {
-                editing = false;
                 $scope.newName = $scope.name;
+                console.log("canceling: ", $scope.newName);
+                $scope.editing = false;
             };
 
+
             $scope.getEditingClass = function() {
-              if (editing) {
+              if ($scope.editing) {
                   return 'input-editable';
               }  else {
                   return 'input-not-editable';
               }
+            };
+
+
+            $scope.handleMouseDownOnBtn = function() {
+                console.log("setting letBtnHandleClick=true");
+                letBtnHandleClick = true;
+            };
+
+            $scope.handleMouseUpOnBtn = function() {
+                console.log("setting letBtnHandleClick=false");
+                letBtnHandleClick = false;
             };
 
         }

@@ -1,10 +1,10 @@
 <div class="rename">
-    <input type="text" ng-focus="setEditing(true)" class="left-float" ng-class="getEditingClass()" ng-model="newName"  ng-blur="setEditing(false)">
-    <div ng-show="isEditing()" class="action-icons">
-        <div ng-click="rename()" class="left-float" >
+    <input type="text" class="left-float" ng-class="getEditingClass()" ng-model="newName" ng-focus="setEditing(true)">
+    <div ng-if="isEditing()" class="action-icons">
+        <div ng-click="rename()" class="left-float" ng-mousedown="handleMouseDownOnBtn()" ng-mouseup="handleMouseUpOnBtn()">
             <i class="action-icon left-float fa fa-check" aria-hidden="true"></i>
         </div>
-        <div ng-click="cancelRename()" class="left-float">
+        <div ng-click="cancelRename()" class="left-float" ng-mousedown="handleMouseDownOnBtn()" ng-mouseup="handleMouseUpOnBtn()">
             <i class="action-icon left-float fa fa-times" aria-hidden="true"></i>
         </div>
     </div>

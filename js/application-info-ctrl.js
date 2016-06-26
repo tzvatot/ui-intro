@@ -59,5 +59,9 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
             }
         };
 
+        $scope.renameVm = function(newName) {
+            console.log("renaming vm ", newName);
+        };
+
     }
 );

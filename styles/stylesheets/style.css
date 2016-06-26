@@ -270,48 +270,56 @@ main {
   overflow: hidden;
   background: inherit;
 }
-/* line 181, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 .rename .input-not-editable {
   border: 0;
   font-size: 16px;
   line-height: 28px;
 }
 /* line 186, ../sass/style.scss */
+.rename .input-not-editable:focus {
+  outline: 0;
+}
+/* line 190, ../sass/style.scss */
 .rename .input-editable {
-  border: 2px;
+  border: 1px solid black;
   font-size: 16px;
   line-height: 28px;
 }
-
 /* line 194, ../sass/style.scss */
+.rename .input-editable:focus {
+  outline: 0;
+}
+
+/* line 201, ../sass/style.scss */
 .action-icon.fa {
   font-size: 20px;
   padding: 2px;
   cursor: pointer;
 }
 
-/* line 201, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 .action-icons {
   background: gainsboro;
   border: 2px;
 }
 
-/* line 206, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 .half-height {
   height: 50%;
 }
 
-/* line 210, ../sass/style.scss */
+/* line 217, ../sass/style.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 214, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 .no-height {
   height: 0;
 }
 
-/* line 218, ../sass/style.scss */
+/* line 225, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;
