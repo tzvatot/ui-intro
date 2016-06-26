@@ -52,7 +52,7 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
 
         function init() {
             ApplicationStore.getApplication($stateParams.appId).then(function (fullApp) {
-                $scope.selectedApp = AppUtil.parseApps([ fullApp ]);
+                $scope.selectedApp = AppUtil.parseApps([ fullApp ])[0];
                 $scope.vms = parseVms(fullApp);
             });
         }
