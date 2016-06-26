@@ -16,7 +16,7 @@ body {
 header {
 	height: 40px;
 	padding: 8px 8px 0px;
-	width: calc(100% - 16px);
+	width: 100%;
 }
 
 .table-heading {
@@ -97,9 +97,9 @@ header {
 main {
 	background-color: $gray;
 	padding: 30px;
-	height: 100%;
+	height: calc(100% - 50px);
 	overflow: auto;
-	width: calc(100% - 60px);
+	width: 100%;
 }
 
 .table-content {
