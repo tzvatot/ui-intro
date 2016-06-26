@@ -12,10 +12,7 @@ angular.module("UiIntro").controller("AppsController", function($scope, $http, $
         };
 
         $scope.getStatusClass = function (status) {
-            if (!status) {
-                return '';
-            }
-            return 'status-' + status.toLowerCase();
+           return AppUtil.getStatusClass(status);
         };
 
         $scope.refreshApps = function() {

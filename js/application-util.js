@@ -12,6 +12,13 @@ angular.module("UiIntro").factory('AppUtil', function(CommonUtil) {
         return parsedApps;
     };
 
+    factory.getStatusClass = function (status) {
+        if (!status) {
+            return '';
+        }
+        return 'status-' + status.toLowerCase();
+    };
+
     function parseApp(fullApp) {
         return {
             name: CommonUtil.formatName(fullApp.name),

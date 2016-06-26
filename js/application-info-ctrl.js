@@ -42,12 +42,8 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
             return status[0].toUpperCase() + status.substr(1).toLowerCase();
         };
 
-        $scope.getAppInfoClass = function () {
-            if ($scope.isAppInfoVisible == true) {
-                return 'half-height';
-            } else {
-                return 'no-height';
-            }
+        $scope.getStatusClass = function (status) {
+            return AppUtil.getStatusClass(status);
         };
 
         $scope.renameVm = function(newName) {
