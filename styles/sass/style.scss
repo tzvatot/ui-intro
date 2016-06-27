@@ -77,14 +77,17 @@ header {
 }
 
 .app-name-and-status {
-	font-size: 22px;
-	color: dodgerblue;
-	text-decoration: none;
-	font-weight: bold;
-	a[ui-sref="app-list"] {
-		color: dodgerblue;
-		text-decoration: none;
-		font-weight: normal;
+	div {
+		font-size: 22px;
+		span {
+			color: dodgerblue;
+			font-weight: bold;
+		}
+		a[ui-sref="app-list"] {
+			color: dodgerblue;
+			text-decoration: underline;
+			font-weight: normal;
+		}
 	}
 }
 
