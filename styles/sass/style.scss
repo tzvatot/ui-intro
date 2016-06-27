@@ -63,14 +63,13 @@ header {
 
 .app-info-header {
 	background: white;
-	height: 84px;
+	height: 64px;
 	margin: 10px;
 	width: calc(100% - 20px);
 	&> div {
 		float: left;
 		width: calc(33% - 2px);
 		div {
-			margin: 0 2px 0 0;
 			overflow-y: hidden;
 		}
 	}
@@ -79,6 +78,7 @@ header {
 .app-name-and-status {
 	div {
 		font-size: 22px;
+		margin: 10px 0 0;
 		span {
 			color: dodgerblue;
 			font-weight: bold;
@@ -87,6 +87,7 @@ header {
 			color: dodgerblue;
 			text-decoration: underline;
 			font-weight: normal;
+			margin: 10px 0 0;
 		}
 	}
 }
@@ -106,8 +107,12 @@ header {
 
 .vms-table {
 	background: $gray;
+	.table-title {
+		font-size: 22px;
+		color: dodgerblue;
+	}
 	padding: 4px;
-	height: calc(100% - 92px);
+	height: calc(100% - 72px);
 	.column {
 		width: 33%;
 	}
