@@ -62,8 +62,9 @@ header {
 }
 
 .app-info-header {
+	background: white;
+	height: 84px;
 	margin: 10px;
-	float: left;
 	width: calc(100% - 20px);
 	&> div {
 		float: left;
@@ -72,6 +73,18 @@ header {
 			margin: 0 2px 0 0;
 			overflow-y: hidden;
 		}
+	}
+}
+
+.app-name-and-status {
+	font-size: 22px;
+	color: dodgerblue;
+	text-decoration: none;
+	font-weight: bold;
+	a[ui-sref="app-list"] {
+		color: dodgerblue;
+		text-decoration: none;
+		font-weight: normal;
 	}
 }
 
@@ -89,6 +102,9 @@ header {
 }
 
 .vms-table {
+	background: $gray;
+	padding: 4px;
+	height: calc(100% - 92px);
 	.column {
 		width: 33%;
 	}

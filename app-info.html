@@ -1,8 +1,11 @@
 <div class="app-info">
-    <a ui-sref="app-list">Applications</a>
     <div class="app-info-header clearfix">
         <div>
-            <div class="ellipsis">{{selectedApp.name}}</div>
+            <div class="app-name-and-status">
+                <a ui-sref="app-list">Applications</a>
+                &gt;
+                <span class="ellipsis">{{selectedApp.name}}</span>
+            </div>
             <div ng-class="getStatusClass(selectedApp.status)">{{selectedApp.status}}</div>
         </div>
         <div>
@@ -10,7 +13,8 @@
         </div>
         <div>{{selectedApp.description}}</div>
     </div>
-    <div class="vms-table">
+    <div class="vms-table clearfix">
+        VMs
         <div class="table-header clearfix">
             <div class="column vm-list-column">Name</div>
             <div class="column vm-list-column">Status</div>
