@@ -11,9 +11,7 @@ angular.module("UiIntro").controller("AppsController", function($scope, $http, $
             }
         };
 
-        $scope.getStatusClass = function (status) {
-           return AppUtil.getStatusClass(status);
-        };
+        $scope.getStatusClass = AppUtil.getStatusClass;
 
         $scope.refreshApps = function() {
             ApplicationStore.listApplications().then(function (appList) {
@@ -35,7 +33,6 @@ angular.module("UiIntro").controller("AppsController", function($scope, $http, $
         };
 
         $scope.renameSelectedApp = function(newName) {
-            console.log("renaming: ", $scope.selectedApp.id, newName);
             renameApp($scope.selectedApp.id, newName);
         };
 
@@ -53,7 +50,6 @@ angular.module("UiIntro").controller("AppsController", function($scope, $http, $
         }
 
         function init() {
-            $http.defaults.headers.common['Authorization'] = 'Basic cmF2ZWxsb0ByYXZlbGxvLmNvbTpyYXZlbGxv';
             $scope.refreshApps();
         }
 

@@ -1,7 +1,14 @@
 angular.module("UiIntro").controller("AppInfoController", function ($scope, $http, $stateParams, ApplicationStore, AppUtil, CommonUtil) {
 
         $scope.vms = [];
-        $scope.selectedApp;
+        $scope.selectedApp = null;
+        $scope.selectedVm = null;
+        var modelApp = null;
+
+        function init() {
+            refresh()
+        }
+
 
         function parseVms(fullApp) {
             var parsedVms = [];
@@ -47,15 +54,29 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
         };
 
         $scope.renameVm = function(newName) {
-            console.log("renaming vm not implemented yet ", newName);
+            var fullVm = _.find(modelApp.design.vms, {id: $scope.selectedVm.id});
+            console.log(fullVm);
+            fullVm.name = newName;
+            console.log('before update: ', modelApp);
+            ApplicationStore.updateApplication(modelApp).then(function() {
+                console.log(modelApp);
+                refresh();
+            });
         };
 
-        function init() {
+        $scope.setSelectedVm = function(vm) {
+            $scope.selectedVm = vm;
+        }
+
+        function refresh() {
             ApplicationStore.getApplication($stateParams.appId).then(function (fullApp) {
+                modelApp = fullApp;
                 $scope.selectedApp = AppUtil.parseApps([ fullApp ])[0];
                 $scope.vms = parseVms(fullApp);
             });
         }
+
+
 
         init();
 

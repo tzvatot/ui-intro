@@ -27,5 +27,11 @@ angular.module("UiIntro").factory('ApplicationStore', function($http) {
 		});
 	}
 
+	function init() {
+		$http.defaults.headers.common['Authorization'] = 'Basic cmF2ZWxsb0ByYXZlbGxvLmNvbTpyYXZlbGxv';
+	}
+
+	init();
+
 	return factory;
 });

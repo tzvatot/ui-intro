@@ -24,7 +24,7 @@
         </div>
         <div class="table-content">
             <div ng-repeat="vm in vms" class="table-line clearfix">
-                <div class="column vm-list-column ellipsis">
+                <div class="column vm-list-column ellipsis" ng-click="setSelectedVm(vm)">
                     <rename-directive name="vm.name" rename-func="renameVm"></rename-directive>
                 </div>
                 <div class="column vm-list-column" ng-class="getStatusClass(vm.status)">{{vm.status}}</div>
