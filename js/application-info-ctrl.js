@@ -1,7 +1,7 @@
 angular.module("UiIntro").controller("AppInfoController", function ($scope, $http, $stateParams, ApplicationStore, AppUtil, CommonUtil) {
 
         $scope.vms = [];
-        $scope.selectedApp = null;
+        $scope.app = null;
         $scope.selectedVm = null;
         var modelApp = null;
 
@@ -71,7 +71,7 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
         function refresh() {
             ApplicationStore.getApplication($stateParams.appId).then(function (fullApp) {
                 modelApp = fullApp;
-                $scope.selectedApp = AppUtil.parseApps([ fullApp ])[0];
+                $scope.app = AppUtil.parseApps([ fullApp ])[0];
                 $scope.vms = parseVms(fullApp);
             });
         }

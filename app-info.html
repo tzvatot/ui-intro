@@ -4,14 +4,14 @@
             <div>
                 <a ui-sref="app-list">Applications</a>
                 &gt;
-                <span class="ellipsis">{{selectedApp.name}}</span>
+                <span class="ellipsis">{{app.name}}</span>
             </div>
-            <div ng-class="getStatusClass(selectedApp.status)">{{selectedApp.status}}</div>
+            <div ng-class="getStatusClass(app.status)">{{app.status}}</div>
         </div>
         <div>
-            <!--div class="btn rename-btn" ng-click="showRenameAppDialog(selectedApp)">Rename</div-->
+            &nbsp;
         </div>
-        <div>{{selectedApp.description}}</div>
+        <div>{{app.description}}</div>
     </div>
     <div class="vms-table clearfix">
         <div class="table-title">
