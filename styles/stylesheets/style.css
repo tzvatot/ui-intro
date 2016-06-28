@@ -149,56 +149,70 @@ header {
 }
 
 /* line 79, ../sass/style.scss */
-.app-name-and-status div {
-  font-size: 22px;
+.app-name-and-status .app-status {
   margin: 10px 0 0;
 }
 /* line 82, ../sass/style.scss */
-.app-name-and-status div span {
+.app-name-and-status div {
+  font-size: 22px;
+}
+/* line 84, ../sass/style.scss */
+.app-name-and-status div .app-name {
+  width: 200px;
+  height: 22px;
+}
+/* line 88, ../sass/style.scss */
+.app-name-and-status div div {
+  float: left;
+  overflow-x: hidden;
+}
+/* line 91, ../sass/style.scss */
+.app-name-and-status div div span {
   color: dodgerblue;
   font-weight: bold;
 }
-/* line 86, ../sass/style.scss */
-.app-name-and-status div a[ui-sref="app-list"] {
+/* line 95, ../sass/style.scss */
+.app-name-and-status div div a[ui-sref="app-list"] {
   color: dodgerblue;
   text-decoration: underline;
   font-weight: normal;
   margin: 10px 0 0;
 }
 
-/* line 95, ../sass/style.scss */
+/* line 105, ../sass/style.scss */
 .ellipsis {
   text-overflow: ellipsis;
   overflow-x: hidden;
+  white-space: nowrap;
 }
 
-/* line 100, ../sass/style.scss */
+/* line 111, ../sass/style.scss */
 .app-list {
   overflow: auto;
 }
 
-/* line 104, ../sass/style.scss */
+/* line 115, ../sass/style.scss */
 .app-info {
   overflow: auto;
 }
 
-/* line 108, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 .vms-table {
   background: #F0F0F0;
   padding: 4px;
   height: calc(100% - 72px);
 }
-/* line 110, ../sass/style.scss */
+/* line 121, ../sass/style.scss */
 .vms-table .table-title {
   font-size: 22px;
   color: dodgerblue;
 }
-/* line 116, ../sass/style.scss */
+/* line 127, ../sass/style.scss */
 .vms-table .column {
   width: 33%;
 }
 
-/* line 121, ../sass/style.scss */
+/* line 132, ../sass/style.scss */
 main {
   background-color: #F0F0F0;
   padding: 30px;
@@ -207,66 +221,66 @@ main {
   width: 100%;
 }
 
-/* line 130, ../sass/style.scss */
+/* line 141, ../sass/style.scss */
 .table-content .table-line {
   line-height: 30px;
   font-size: 16px;
 }
-/* line 131, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 .table-content .table-line:nth-child(even) {
   background-color: #F8F8F8;
 }
-/* line 134, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 .table-content .table-line:nth-child(odd) {
   background-color: white;
 }
-/* line 137, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 .table-content .table-line > div {
   padding: 10px;
 }
 
-/* line 145, ../sass/style.scss */
+/* line 156, ../sass/style.scss */
 .column {
   float: left;
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
-/* line 149, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 .column .info {
   text-decoration: underline;
   cursor: pointer;
   width: 50px;
 }
-/* line 154, ../sass/style.scss */
+/* line 165, ../sass/style.scss */
 .column.app-list-column {
   width: calc(100% / 7 - 20px);
 }
-/* line 157, ../sass/style.scss */
+/* line 168, ../sass/style.scss */
 .column.vm-list-column {
   width: calc(100% / 3 - 20px);
 }
 
-/* line 162, ../sass/style.scss */
+/* line 173, ../sass/style.scss */
 .status-running {
   color: green;
 }
 
-/* line 166, ../sass/style.scss */
+/* line 177, ../sass/style.scss */
 .status-stopped {
   color: orange;
 }
 
-/* line 170, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 .status-error {
   color: red;
 }
 
-/* line 174, ../sass/style.scss */
+/* line 185, ../sass/style.scss */
 .status-draft {
   color: gray;
 }
 
-/* line 178, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 .btn {
   background-color: #F0F0F0;
   width: 80px;
@@ -278,12 +292,12 @@ main {
   cursor: pointer;
 }
 
-/* line 189, ../sass/style.scss */
+/* line 200, ../sass/style.scss */
 .table-content .column-created {
   color: #C7CDE5;
 }
 
-/* line 193, ../sass/style.scss */
+/* line 204, ../sass/style.scss */
 .input {
   border-radius: 5px;
   width: 200px;
@@ -292,17 +306,17 @@ main {
   padding-left: 5px;
   padding-right: 5px;
 }
-/* line 200, ../sass/style.scss */
+/* line 211, ../sass/style.scss */
 .input:focus {
   outline: 0;
 }
 
-/* line 205, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 .rename {
   font-size: 16px;
   overflow: hidden;
 }
-/* line 208, ../sass/style.scss */
+/* line 219, ../sass/style.scss */
 .rename input[type="text"] {
   background: transparent;
   width: calc(100% - 44px);
@@ -310,27 +324,27 @@ main {
   font-size: 16px;
   line-height: 28px;
 }
-/* line 214, ../sass/style.scss */
+/* line 225, ../sass/style.scss */
 .rename input[type="text"]:focus {
   outline: 0;
 }
-/* line 217, ../sass/style.scss */
+/* line 228, ../sass/style.scss */
 .rename input[type="text"].input-not-editable {
   border: 0;
 }
-/* line 220, ../sass/style.scss */
+/* line 231, ../sass/style.scss */
 .rename input[type="text"].input-editable {
   background: white;
 }
 
-/* line 227, ../sass/style.scss */
+/* line 238, ../sass/style.scss */
 .action-icon.fa {
   font-size: 20px;
   padding: 2px;
   cursor: pointer;
 }
 
-/* line 234, ../sass/style.scss */
+/* line 245, ../sass/style.scss */
 .action-icons {
   background: gainsboro;
   border: 2px;
@@ -338,7 +352,7 @@ main {
   height: 30px;
 }
 
-/* line 241, ../sass/style.scss */
+/* line 252, ../sass/style.scss */
 .clearfix:after {
   clear: both;
   display: block;

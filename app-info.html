@@ -2,11 +2,18 @@
     <div class="app-info-header clearfix">
         <div class="app-name-and-status">
             <div>
-                <a ui-sref="app-list">Applications</a>
-                &gt;
-                <span class="ellipsis">{{app.name}}</span>
+                <div>
+                    <a ui-sref="app-list">Applications</a>
+                </div>
+                <div>
+                    &nbsp;&gt;&nbsp;
+                </div>
+                <div class="app-name ellipsis">
+                    <span>{{app.name}}</span>
+                </div>
+                <div class="clearfix"></div>
             </div>
-            <div ng-class="getStatusClass(app.status)">{{app.status}}</div>
+            <div class="app-status" ng-class="getStatusClass(app.status)">{{app.status}}</div>
         </div>
         <div>
             &nbsp;

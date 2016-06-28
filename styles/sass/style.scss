@@ -76,18 +76,28 @@ header {
 }
 
 .app-name-and-status {
+	.app-status {
+		margin: 10px 0 0;
+	}
 	div {
 		font-size: 22px;
-		margin: 10px 0 0;
-		span {
-			color: dodgerblue;
-			font-weight: bold;
+		.app-name {
+			width: 200px;
+			height: 22px;
 		}
-		a[ui-sref="app-list"] {
-			color: dodgerblue;
-			text-decoration: underline;
-			font-weight: normal;
-			margin: 10px 0 0;
+		div{
+			float: left;
+			overflow-x: hidden;
+			span {
+				color: dodgerblue;
+				font-weight: bold;
+			}
+			a[ui-sref="app-list"] {
+				color: dodgerblue;
+				text-decoration: underline;
+				font-weight: normal;
+				margin: 10px 0 0;
+			}
 		}
 	}
 }
@@ -95,6 +105,7 @@ header {
 .ellipsis {
 	text-overflow: ellipsis;
 	overflow-x: hidden;
+	white-space: nowrap;
 }
 
 .app-list {
