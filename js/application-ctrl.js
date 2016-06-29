@@ -19,14 +19,16 @@ angular.module("UiIntro").controller("AppsController", function($scope, $http, $
             });
         };
 
-        $scope.showRenameAppDialog = function(app) {
+        $scope.showCreateAppDialog = function(app) {
             var modalInstance = $uibModal.open({
-                templateUrl : 'rename-app-dialog-modal.html',
-                controller : 'RenameAppModalCtrl'
+                templateUrl : 'create-new-app-modal.html',
+                controller : 'CreateAppModalCtrl'
             });
 
-            modalInstance.result.then(function(newAppName) {
-                renameApp(app.id, newAppName);
+            modalInstance.result.then(function(appDetails) {
+                var name = appDetails.name;
+                var description = appDetails.description;
+                createNewApp(name, description);
             }, function() {
 //				console.log("dismissing modal");
             });
@@ -36,8 +38,8 @@ angular.module("UiIntro").controller("AppsController", function($scope, $http, $
             renameApp($scope.selectedApp.id, newName);
         };
 
-        $scope.createNewApp = function() {
-            console.log("not implemented yet");
+        function createNewApp(name, description) {
+            console.log("not implemented yet", name, description);
         }
 
         function renameApp(appId, newAppName) {
