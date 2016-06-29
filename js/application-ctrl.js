@@ -36,6 +36,10 @@ angular.module("UiIntro").controller("AppsController", function($scope, $http, $
             renameApp($scope.selectedApp.id, newName);
         };
 
+        $scope.createNewApp = function() {
+            console.log("not implemented yet");
+        }
+
         function renameApp(appId, newAppName) {
             ApplicationStore.getApplication(appId).then(function(fullApp){
                 fullApp.name = newAppName;
