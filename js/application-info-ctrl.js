@@ -60,9 +60,7 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
             return status[0].toUpperCase() + status.substr(1).toLowerCase();
         }
 
-        $scope.getStatusClass = function (status) {
-            return AppUtil.getStatusClass(status);
-        };
+        $scope.getStatusClass = AppUtil.getStatusClass;
 
         $scope.renameVm = function(newName) {
             var fullVm = _.find(modelApp.design.vms, {id: $scope.selectedVm.id});
@@ -86,8 +84,6 @@ angular.module("UiIntro").controller("AppInfoController", function ($scope, $htt
                 $scope.vms = parseVms(fullApp);
             });
         }
-
-
 
         init();
 
